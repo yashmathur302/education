@@ -15,6 +15,7 @@
     --color-teal: #1f5d68;
     --color-brand: #e5522a;
     --color-brand-dark: #c8431f;
+    --color-sand: #f3efe8;
 }
 
 @layer components {

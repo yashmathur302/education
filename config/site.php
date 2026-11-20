@@ -21,6 +21,41 @@ return [
         'dial' => '+919898989898',
     ],
 
+    // Placeholder contact details: replace with the real ones before launch.
+    'email' => 'info@example.com',
+
+    'address' => [
+        'lines' => ['Your Street Address', 'City, State'],
+        'map_url' => 'https://maps.google.com/',
+    ],
+
+    // Placeholder profile links: replace '#' with the real profile URLs.
+    'social' => [
+        ['icon' => 'facebook', 'label' => 'Facebook', 'url' => '#'],
+        ['icon' => 'youtube', 'label' => 'YouTube', 'url' => '#'],
+        ['icon' => 'instagram', 'label' => 'Instagram', 'url' => '#'],
+    ],
+
+    'footer' => [
+        'link_columns' => [
+            [
+                ['route' => 'home', 'label' => 'Home'],
+                ['route' => 'about', 'label' => 'About Us'],
+                ['route' => 'services', 'label' => 'Services'],
+            ],
+            [
+                ['route' => 'blog', 'label' => 'Blog'],
+                ['route' => 'contact', 'label' => 'Contact Us'],
+                ['route' => 'find-tutor', 'label' => 'Find Tutor'],
+            ],
+        ],
+        'bottom_links' => [
+            ['route' => 'about', 'label' => 'About Us'],
+            ['route' => 'services', 'label' => 'Services'],
+            ['route' => 'contact', 'label' => 'Contact Us'],
+        ],
+    ],
+
     'navigation' => [
         ['route' => 'home', 'label' => 'Home'],
         ['route' => 'about', 'label' => 'About Us'],
