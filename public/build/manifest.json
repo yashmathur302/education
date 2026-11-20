@@ -1,0 +1,49 @@
+{
+  "node_modules/@fontsource/lexend/files/lexend-latin-400-normal.woff": {
+    "file": "assets/lexend-latin-400-normal-CHypAkT3.woff",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-400-normal.woff"
+  },
+  "node_modules/@fontsource/lexend/files/lexend-latin-400-normal.woff2": {
+    "file": "assets/lexend-latin-400-normal-CwRJVcUA.woff2",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/lexend/files/lexend-latin-500-normal.woff": {
+    "file": "assets/lexend-latin-500-normal-D9x1QWTH.woff",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-500-normal.woff"
+  },
+  "node_modules/@fontsource/lexend/files/lexend-latin-500-normal.woff2": {
+    "file": "assets/lexend-latin-500-normal-Dl-X5nog.woff2",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-500-normal.woff2"
+  },
+  "node_modules/@fontsource/lexend/files/lexend-latin-600-normal.woff": {
+    "file": "assets/lexend-latin-600-normal-DSBzZxpA.woff",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-600-normal.woff"
+  },
+  "node_modules/@fontsource/lexend/files/lexend-latin-600-normal.woff2": {
+    "file": "assets/lexend-latin-600-normal-DdvlkEkX.woff2",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-600-normal.woff2"
+  },
+  "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff": {
+    "file": "assets/sniglet-latin-800-normal-g3yqKLdc.woff",
+    "src": "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff"
+  },
+  "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff2": {
+    "file": "assets/sniglet-latin-800-normal-Db1o7iA-.woff2",
+    "src": "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-TlKxSZOK.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-oEebSPkJ.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}

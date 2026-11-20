@@ -1,11 +1,45 @@
+@import '@fontsource/lexend/latin-400.css';
+@import '@fontsource/lexend/latin-500.css';
+@import '@fontsource/lexend/latin-600.css';
+@import '@fontsource/sniglet/latin-800.css';
 @import 'tailwindcss';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Lexend', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Sniglet', 'Lexend', ui-sans-serif, sans-serif;
+
+    --color-ink: #12343c;
+    --color-teal: #1f5d68;
+    --color-brand: #e5522a;
+    --color-brand-dark: #c8431f;
+}
+
+@layer components {
+    /*
+     * Scalloped strip that hangs below the header. Each tile draws one
+     * semicircle; the tile size controls the width and depth of the waves.
+     */
+    .scalloped-edge {
+        --scallop-width: 64px;
+        --scallop-depth: 12px;
+
+        height: var(--scallop-depth);
+        background-image: radial-gradient(
+            circle calc(var(--scallop-width) * 0.52) at 50% calc(var(--scallop-depth) - var(--scallop-width) * 0.52),
+            #fff 98%,
+            transparent 100%
+        );
+        background-size: var(--scallop-width) var(--scallop-depth);
+        background-repeat: repeat-x;
+    }
+
+    @media (width >= 64rem) {
+        .scalloped-edge {
+            --scallop-width: 124px;
+            --scallop-depth: 22px;
+        }
+    }
 }
