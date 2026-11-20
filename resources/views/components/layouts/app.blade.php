@@ -23,6 +23,7 @@
     </main>
 
     <x-site-footer />
+    <x-back-to-top />
 
     @stack('page-end')
 </body>

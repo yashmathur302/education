@@ -36,10 +36,31 @@
         background-repeat: repeat-x;
     }
 
+    /*
+     * Rising variant for the bottom of a section: white arcs whose ends
+     * meet on the baseline, so the gaps between them form sharp valleys.
+     * The radius is chosen so each arc spans exactly one tile.
+     */
+    .scalloped-edge--rise {
+        --scallop-width: 58px;
+        --scallop-radius: 41px;
+
+        background-image: radial-gradient(
+            circle var(--scallop-radius) at 50% var(--scallop-radius),
+            #fff 99%,
+            transparent 100%
+        );
+    }
+
     @media (width >= 64rem) {
         .scalloped-edge {
             --scallop-width: 124px;
             --scallop-depth: 22px;
+        }
+
+        .scalloped-edge--rise {
+            --scallop-width: 115px;
+            --scallop-radius: 86px;
         }
     }
 }

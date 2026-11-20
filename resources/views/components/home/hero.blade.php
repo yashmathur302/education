@@ -27,4 +27,6 @@
             </div>
         </div>
     </div>
+
+    <div class="scalloped-edge scalloped-edge--rise pointer-events-none absolute inset-x-0 bottom-0" aria-hidden="true"></div>
 </section>
