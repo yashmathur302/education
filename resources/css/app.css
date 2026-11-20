@@ -18,6 +18,9 @@
     --color-brand-dark: #c8431f;
     --color-sand: #f3efe8;
     --color-sky: #d5e5ea;
+    --color-blush: #ffdcd2;
+    --color-mist: #dbf4fb;
+    --color-lagoon: #1b6f7f;
 }
 
 @layer components {
