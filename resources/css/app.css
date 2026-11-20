@@ -16,6 +16,7 @@
     --color-brand: #e5522a;
     --color-brand-dark: #c8431f;
     --color-sand: #f3efe8;
+    --color-sky: #d5e5ea;
 }
 
 @layer components {
@@ -53,6 +54,16 @@
         );
     }
 
+    /*
+     * Smaller, denser arcs used on the edges of coloured content sections.
+     * Radius = (width² / 4 + depth²) / (2 × depth), so arcs meet on the baseline.
+     */
+    .scalloped-edge--small {
+        --scallop-width: 28px;
+        --scallop-depth: 9px;
+        --scallop-radius: 15.4px;
+    }
+
     @media (width >= 64rem) {
         .scalloped-edge {
             --scallop-width: 124px;
@@ -62,6 +73,12 @@
         .scalloped-edge--rise {
             --scallop-width: 115px;
             --scallop-radius: 86px;
+        }
+
+        .scalloped-edge--small {
+            --scallop-width: 40px;
+            --scallop-depth: 12px;
+            --scallop-radius: 22.7px;
         }
     }
 }
