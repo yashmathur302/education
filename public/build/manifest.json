@@ -23,6 +23,14 @@
     "file": "assets/lexend-latin-600-normal-DdvlkEkX.woff2",
     "src": "node_modules/@fontsource/lexend/files/lexend-latin-600-normal.woff2"
   },
+  "node_modules/@fontsource/lexend/files/lexend-latin-700-normal.woff": {
+    "file": "assets/lexend-latin-700-normal-DVyJlN8t.woff",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-700-normal.woff"
+  },
+  "node_modules/@fontsource/lexend/files/lexend-latin-700-normal.woff2": {
+    "file": "assets/lexend-latin-700-normal-DqO8md6r.woff2",
+    "src": "node_modules/@fontsource/lexend/files/lexend-latin-700-normal.woff2"
+  },
   "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff": {
     "file": "assets/sniglet-latin-800-normal-g3yqKLdc.woff",
     "src": "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff"
@@ -32,7 +40,7 @@
     "src": "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CapE0MV7.css",
+    "file": "assets/app-DFJwtAnQ.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
