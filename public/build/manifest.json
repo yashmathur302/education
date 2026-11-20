@@ -32,7 +32,7 @@
     "src": "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-B8ivKzFQ.css",
+    "file": "assets/app-C1EeQ9IU.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -41,7 +41,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-Bw6HsINk.js",
+    "file": "assets/app-BFJgVDAT.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

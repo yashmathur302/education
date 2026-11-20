@@ -1,6 +1,9 @@
+const DESKTOP_QUERY = '(width >= 64rem)';
+
 /**
- * Toggles the primary navigation on small screens and keeps
- * aria-expanded in sync for screen readers.
+ * Toggles the full-height navigation panel on phones and tablets.
+ * While the panel is open the page behind it cannot scroll, and
+ * aria-expanded stays in sync for screen readers.
  */
 export function initMobileMenu() {
     const toggle = document.querySelector('[data-menu-toggle]');
@@ -10,18 +13,31 @@ export function initMobileMenu() {
         return;
     }
 
-    const setOpen = (isOpen) => {
-        menu.classList.toggle('hidden', !isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+
+    const setOpen = (open) => {
+        menu.classList.toggle('hidden', !open);
+        document.body.classList.toggle('overflow-hidden', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     };
 
     toggle.addEventListener('click', () => {
-        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        if (!isOpen()) {
+            window.scrollTo({ top: 0 });
+        }
+
+        setOpen(!isOpen());
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && isOpen()) {
+            setOpen(false);
+        }
+    });
+
+    window.matchMedia(DESKTOP_QUERY).addEventListener('change', (event) => {
+        if (event.matches && isOpen()) {
             setOpen(false);
         }
     });

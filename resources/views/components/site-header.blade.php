@@ -12,7 +12,7 @@
 
         <div
             id="site-menu"
-            class="absolute inset-x-0 top-full z-40 hidden bg-white px-4 pb-6 shadow-lg sm:px-6 lg:contents"
+            class="absolute inset-x-0 top-full z-40 hidden h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-slate-100 bg-white px-4 pb-8 sm:px-6 lg:contents"
             data-menu
         >
             <nav aria-label="Primary">
