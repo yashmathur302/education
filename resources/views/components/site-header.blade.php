@@ -4,14 +4,15 @@
 @endphp
 
 <header class="relative z-30 bg-white">
-    <div class="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:h-[78px] lg:px-6">
-        <a href="{{ route('home') }}" class="font-display text-3xl font-extrabold text-ink lg:text-[2.5rem]">
+    {{-- On large screens a three-column grid keeps the menu centred between the logo and the actions. --}}
+    <div class="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:grid lg:h-[78px] lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:px-6">
+        <a href="{{ route('home') }}" class="font-display text-3xl font-extrabold text-ink lg:justify-self-start lg:text-[2.5rem]">
             {{ config('site.name') }}
         </a>
 
         <div
             id="site-menu"
-            class="absolute inset-x-0 top-full z-40 hidden bg-white px-4 pb-6 shadow-lg sm:px-6 lg:static lg:ml-11 lg:flex lg:flex-1 lg:items-center lg:p-0 lg:shadow-none"
+            class="absolute inset-x-0 top-full z-40 hidden bg-white px-4 pb-6 shadow-lg sm:px-6 lg:contents"
             data-menu
         >
             <nav aria-label="Primary">
@@ -36,8 +37,8 @@
                 </ul>
             </nav>
 
-            <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center lg:mt-0 lg:ml-auto lg:gap-5">
-                <x-phone-link />
+            <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center lg:mt-0 lg:justify-self-end lg:gap-5">
+                <x-phone-link class="lg:hidden xl:inline-flex" />
                 <x-button :href="route($cta['route'])">{{ $cta['label'] }}</x-button>
             </div>
         </div>

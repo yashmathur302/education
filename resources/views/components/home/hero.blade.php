@@ -13,10 +13,6 @@
 
     <div class="mx-auto flex min-h-[460px] max-w-[1440px] items-center px-4 pt-16 pb-14 sm:min-h-[500px] sm:px-6 lg:min-h-[534px] lg:px-6 lg:pt-20">
         <div class="max-w-xl">
-            <p class="mb-4 font-display text-lg font-extrabold text-brand sm:text-xl">
-                Home &amp; Online Tutoring
-            </p>
-
             <h1 class="font-display text-[2.25rem] leading-[1.15] font-extrabold text-ink sm:text-5xl xl:text-[3.5rem]">
                 Find the Right Tutor for Your Child
             </h1>
