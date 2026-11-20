@@ -10,10 +10,11 @@
     'videoUrl' => null,
 ])
 
-<figure {{ $attributes->class('relative pt-[20.7%] pb-[8%]') }}>
+{{-- Top padding = 42% width x (138 / 264) viewBox ratio, so the antennas sit exactly on the frame. --}}
+<figure {{ $attributes->class('relative pt-[21.95%] pb-[8%]') }}>
     <svg
         class="absolute top-0 left-1/2 w-[42%] -translate-x-1/2 text-ink"
-        viewBox="0 0 264 130"
+        viewBox="0 -8 264 138"
         fill="currentColor"
         aria-hidden="true"
     >
