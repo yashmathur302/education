@@ -32,8 +32,10 @@ return [
     'address' => [
         'lines' => ['Your Street Address', 'City, State'],
         'map_url' => 'https://maps.google.com/',
-        // Search text for the Contact Us map: the full business address or the Google Maps place name.
-        'map_query' => 'Jaipur, Rajasthan, India',
+        // Contact Us map. Set GOOGLE_MAP_EMBED_URL in .env to the "src" link from Google Maps
+        // (Share > Embed a map). Until then the map searches for GOOGLE_MAP_QUERY.
+        'map_embed_url' => env('GOOGLE_MAP_EMBED_URL'),
+        'map_query' => env('GOOGLE_MAP_QUERY') ?: 'Jaipur, Rajasthan, India',
     ],
 
     // Placeholder profile links: replace '#' with the real profile URLs.

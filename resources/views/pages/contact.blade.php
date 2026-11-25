@@ -7,6 +7,7 @@
     <section class="py-14 sm:py-16 lg:py-20" aria-labelledby="contact-form-heading">
         <div class="mx-auto grid max-w-[1200px] gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
             <x-google-map
+                :embed-url="config('site.address.map_embed_url')"
                 :query="config('site.address.map_query')"
                 class="order-last h-[320px] sm:h-[400px] lg:order-first lg:h-auto lg:min-h-[520px]"
             />
@@ -27,7 +28,7 @@
                     <x-form.honeypot />
 
                     @if (session('status'))
-                        <x-alert class="sm:col-span-2">{{ session('status') }}</x-alert>
+                        <x-alert class="sm:col-span-2" data-auto-dismiss="5000">{{ session('status') }}</x-alert>
                     @endif
 
                     @if (session('error'))
@@ -74,11 +75,6 @@
 
                     <div class="sm:col-span-2">
                         <x-button type="submit">Submit my information</x-button>
-
-                        <p class="mt-4 text-sm text-ink/70">
-                            By submitting this form, you agree to our
-                            <a href="{{ route('privacy-policy') }}" class="font-medium text-brand underline-offset-2 hover:underline">Privacy Policy</a>.
-                        </p>
                     </div>
                 </form>
             </div>

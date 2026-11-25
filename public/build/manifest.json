@@ -40,7 +40,7 @@
     "src": "node_modules/@fontsource/sniglet/files/sniglet-latin-800-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Dw8G9OcC.css",
+    "file": "assets/app-DOkqD6hb.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -49,7 +49,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BFJgVDAT.js",
+    "file": "assets/app--rtlnFR6.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

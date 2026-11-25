@@ -23,8 +23,24 @@ class ContactFormTest extends TestCase
         $this->get(route('contact'))
             ->assertOk()
             ->assertSee('Send Us a Message')
-            ->assertSee('maps.google.com/maps', false)
-            ->assertSee(route('privacy-policy'), false);
+            ->assertSee('maps.google.com/maps', false);
+    }
+
+    public function test_map_uses_the_configured_google_embed_link(): void
+    {
+        $embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12';
+        config(['site.address.map_embed_url' => $embedUrl]);
+
+        $this->get(route('contact'))->assertSee($embedUrl, false);
+    }
+
+    public function test_map_ignores_embed_links_from_other_sites(): void
+    {
+        config(['site.address.map_embed_url' => 'https://evil.example/embed']);
+
+        $this->get(route('contact'))
+            ->assertDontSee('evil.example', false)
+            ->assertSee('maps.google.com/maps', false);
     }
 
     public function test_valid_submission_emails_the_recipient(): void
