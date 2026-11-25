@@ -67,6 +67,25 @@ class ContactFormTest extends TestCase
         $this->assertStringContainsString('25 November 2026, 4:27 pm', $html);
     }
 
+    public function test_background_submission_returns_errors_as_json_without_redirecting(): void
+    {
+        $this->postJson(route('contact.store'), $this->validSubmission(['email' => 'not-an-email']))
+            ->assertStatus(422)
+            ->assertJsonValidationErrors('email');
+
+        Mail::assertNothingSent();
+    }
+
+    public function test_background_submission_returns_the_page_to_reload_on_success(): void
+    {
+        $this->postJson(route('contact.store'), $this->validSubmission())
+            ->assertOk()
+            ->assertJson(['redirect' => route('contact') . '#contact-form'])
+            ->assertSessionHas('status');
+
+        Mail::assertSent(ContactFormSubmitted::class);
+    }
+
     public function test_missing_required_fields_are_rejected(): void
     {
         $this->post(route('contact.store'), [])

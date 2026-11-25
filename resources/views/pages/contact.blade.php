@@ -19,6 +19,7 @@
 
                 <form
                     id="contact-form"
+                    data-ajax-form
                     method="POST"
                     action="{{ route('contact.store') }}"
                     class="relative mt-6 grid scroll-mt-8 gap-5 sm:grid-cols-2"

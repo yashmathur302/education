@@ -8,6 +8,7 @@
         <div class="mx-auto max-w-[1000px] px-4 sm:px-6">
             <form
                 id="find-tutor-form"
+                data-ajax-form
                 method="POST"
                 action="{{ route('find-tutor.store') }}"
                 class="relative grid scroll-mt-8 gap-5 sm:grid-cols-2"

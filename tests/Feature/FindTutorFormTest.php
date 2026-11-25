@@ -51,6 +51,25 @@ class FindTutorFormTest extends TestCase
         $this->assertStringContainsString('Mathematics', $html);
     }
 
+    public function test_background_submission_returns_errors_as_json_without_redirecting(): void
+    {
+        $this->postJson(route('find-tutor.store'), $this->validRequest(['subject' => '']))
+            ->assertStatus(422)
+            ->assertJsonValidationErrors('subject');
+
+        Mail::assertNothingSent();
+    }
+
+    public function test_background_submission_returns_the_page_to_reload_on_success(): void
+    {
+        $this->postJson(route('find-tutor.store'), $this->validRequest())
+            ->assertOk()
+            ->assertJson(['redirect' => route('find-tutor') . '#find-tutor-form'])
+            ->assertSessionHas('status');
+
+        Mail::assertSent(TutorRequestSubmitted::class);
+    }
+
     public function test_missing_fields_are_rejected(): void
     {
         $this->post(route('find-tutor.store'), [])
