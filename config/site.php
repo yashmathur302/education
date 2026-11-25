@@ -26,6 +26,12 @@ return [
         'recipient' => env('CONTACT_FORM_RECIPIENT', env('MAIL_FROM_ADDRESS')),
     ],
 
+    // Where Find a Tutor requests are emailed. Uses the Contact Us address unless
+    // TUTOR_REQUEST_RECIPIENT is set in the server's .env file.
+    'tutor_request' => [
+        'recipient' => env('TUTOR_REQUEST_RECIPIENT') ?: env('CONTACT_FORM_RECIPIENT', env('MAIL_FROM_ADDRESS')),
+    ],
+
     // Placeholder contact details: replace with the real ones before launch.
     'email' => 'info@example.com',
 

@@ -30,13 +30,17 @@ class ContactFormSubmitted extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact-form-submitted',
-            with: ['details' => [
-                'Name' => $this->fullName(),
-                'Email' => $this->submission['email'],
-                'Phone' => $this->submission['phone'],
-                'Message' => $this->submission['message'],
-            ]],
+            view: 'emails.enquiry',
+            with: [
+                'heading' => 'New contact enquiry',
+                'pageName' => 'Contact Us',
+                'details' => [
+                    'Name' => $this->fullName(),
+                    'Email' => $this->submission['email'],
+                    'Phone' => $this->submission['phone'],
+                    'Message' => $this->submission['message'],
+                ],
+            ],
         );
     }
 
