@@ -22,8 +22,8 @@ class TutorRequestSubmitted extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New tutor request from ' . $this->submission['name'],
-            replyTo: [new Address($this->submission['email'], $this->submission['name'])],
+            subject: 'New tutor request from ' . $this->fullName(),
+            replyTo: [new Address($this->submission['email'], $this->fullName())],
         );
     }
 
@@ -35,7 +35,7 @@ class TutorRequestSubmitted extends Mailable
                 'heading' => 'New tutor request',
                 'pageName' => 'Find a Tutor',
                 'details' => [
-                    'Name' => $this->submission['name'],
+                    'Name' => $this->fullName(),
                     'Email' => $this->submission['email'],
                     'Phone' => $this->submission['phone'],
                     'Class / course' => $this->submission['class_or_course'],
@@ -43,5 +43,10 @@ class TutorRequestSubmitted extends Mailable
                 ],
             ],
         );
+    }
+
+    private function fullName(): string
+    {
+        return $this->submission['first_name'] . ' ' . $this->submission['last_name'];
     }
 }

@@ -24,7 +24,18 @@
                     <x-alert type="error" class="sm:col-span-2">{{ session('error') }}</x-alert>
                 @endif
 
-                <x-form.input name="name" label="Name" placeholder="Name" autocomplete="name" hide-label required />
+                <x-form.input name="first_name" label="First Name" placeholder="First Name" autocomplete="given-name" hide-label required />
+                <x-form.input name="last_name" label="Last Name" placeholder="Last Name" autocomplete="family-name" hide-label required />
+
+                <x-form.input
+                    name="email"
+                    type="email"
+                    label="Email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    hide-label
+                    required
+                />
                 <x-form.input
                     name="phone"
                     type="tel"
@@ -34,18 +45,6 @@
                     hide-label
                     required
                 />
-
-                <div class="sm:col-span-2">
-                    <x-form.input
-                        name="email"
-                        type="email"
-                        label="Email"
-                        placeholder="Email"
-                        autocomplete="email"
-                        hide-label
-                        required
-                    />
-                </div>
 
                 <div class="sm:col-span-2">
                     <x-form.input

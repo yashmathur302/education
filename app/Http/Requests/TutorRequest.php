@@ -17,7 +17,8 @@ class TutorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:120'],
+            'first_name' => ['required', 'string', 'max:60'],
+            'last_name' => ['required', 'string', 'max:60'],
             'email' => ['required', 'email:rfc', 'max:120'],
             'phone' => ['required', 'regex:/^(\+91[\s-]?)?[6-9][0-9]{9}$/'],
             'class_or_course' => ['required', 'string', 'max:120'],

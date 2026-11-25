@@ -46,6 +46,7 @@ class FindTutorFormTest extends TestCase
         $html = (new TutorRequestSubmitted($this->validRequest()))->render();
 
         $this->assertStringContainsString('New tutor request', $html);
+        $this->assertStringContainsString('Asha Verma', $html);
         $this->assertStringContainsString('Class 10 (CBSE)', $html);
         $this->assertStringContainsString('Mathematics', $html);
     }
@@ -53,7 +54,7 @@ class FindTutorFormTest extends TestCase
     public function test_missing_fields_are_rejected(): void
     {
         $this->post(route('find-tutor.store'), [])
-            ->assertSessionHasErrors(['name', 'email', 'phone', 'class_or_course', 'subject']);
+            ->assertSessionHasErrors(['first_name', 'last_name', 'email', 'phone', 'class_or_course', 'subject']);
 
         Mail::assertNothingSent();
     }
@@ -81,7 +82,8 @@ class FindTutorFormTest extends TestCase
     private function validRequest(array $overrides = []): array
     {
         return array_merge([
-            'name' => 'Asha Verma',
+            'first_name' => 'Asha',
+            'last_name' => 'Verma',
             'email' => 'parent@example.test',
             'phone' => '9876543210',
             'class_or_course' => 'Class 10 (CBSE)',
