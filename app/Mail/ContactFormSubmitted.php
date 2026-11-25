@@ -2,12 +2,10 @@
 
 namespace App\Mail;
 
-use App\Support\StartMonthOptions;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Support\Carbon;
 
 /**
  * Email sent to the site owner when someone submits the Contact Us form.
@@ -15,7 +13,7 @@ use Illuminate\Support\Carbon;
 class ContactFormSubmitted extends Mailable
 {
     /**
-     * @param  array<string, string|null>  $submission  validated form data
+     * @param  array<string, string>  $submission  validated form data
      */
     public function __construct(public readonly array $submission)
     {
@@ -23,11 +21,9 @@ class ContactFormSubmitted extends Mailable
 
     public function envelope(): Envelope
     {
-        $fullName = $this->submission['first_name'] . ' ' . $this->submission['last_name'];
-
         return new Envelope(
-            subject: 'New contact enquiry from ' . $fullName,
-            replyTo: [new Address($this->submission['email'], $fullName)],
+            subject: 'New contact enquiry from ' . $this->fullName(),
+            replyTo: [new Address($this->submission['email'], $this->fullName())],
         );
     }
 
@@ -35,28 +31,17 @@ class ContactFormSubmitted extends Mailable
     {
         return new Content(
             view: 'emails.contact-form-submitted',
-            with: ['details' => $this->details()],
+            with: ['details' => [
+                'Name' => $this->fullName(),
+                'Email' => $this->submission['email'],
+                'Phone' => $this->submission['phone'],
+                'Message' => $this->submission['message'],
+            ]],
         );
     }
 
-    /**
-     * Human-readable label => value pairs for the email body.
-     *
-     * @return array<string, string>
-     */
-    private function details(): array
+    private function fullName(): string
     {
-        $data = $this->submission;
-
-        return [
-            'Name' => $data['first_name'] . ' ' . $data['last_name'],
-            'Email' => $data['email'],
-            'Phone' => $data['phone'],
-            'PIN code' => $data['pin_code'],
-            "Child's date of birth" => Carbon::parse($data['child_date_of_birth'])->format('j F Y'),
-            'Would like to start in' => StartMonthOptions::label($data['start_month']),
-            'Preferred visit date' => Carbon::parse($data['visit_date'])->format('j F Y'),
-            'Questions' => $data['message'] ?: 'None',
-        ];
+        return $this->submission['first_name'] . ' ' . $this->submission['last_name'];
     }
 }

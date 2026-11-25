@@ -32,6 +32,8 @@ return [
     'address' => [
         'lines' => ['Your Street Address', 'City, State'],
         'map_url' => 'https://maps.google.com/',
+        // Search text for the Contact Us map: the full business address or the Google Maps place name.
+        'map_query' => 'Jaipur, Rajasthan, India',
     ],
 
     // Placeholder profile links: replace '#' with the real profile URLs.
@@ -58,6 +60,7 @@ return [
             ['route' => 'about', 'label' => 'About Us'],
             ['route' => 'services', 'label' => 'Services'],
             ['route' => 'contact', 'label' => 'Contact Us'],
+            ['route' => 'privacy-policy', 'label' => 'Privacy Policy'],
         ],
     ],
 
@@ -91,6 +94,10 @@ return [
         'contact' => [
             'title' => 'Contact Us',
             'description' => 'Get in touch with our team for any questions about tutoring.',
+        ],
+        'privacy-policy' => [
+            'title' => 'Privacy Policy',
+            'description' => 'How we collect, use and protect the personal information you share with us.',
         ],
         'find-tutor' => [
             'title' => 'Find a Tutor',

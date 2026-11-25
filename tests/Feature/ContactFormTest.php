@@ -18,12 +18,13 @@ class ContactFormTest extends TestCase
         Mail::fake();
     }
 
-    public function test_contact_page_shows_the_form(): void
+    public function test_contact_page_shows_the_form_and_map(): void
     {
         $this->get(route('contact'))
             ->assertOk()
-            ->assertSee('Contact Us')
-            ->assertSee('Submit my information');
+            ->assertSee('Send Us a Message')
+            ->assertSee('maps.google.com/maps', false)
+            ->assertSee(route('privacy-policy'), false);
     }
 
     public function test_valid_submission_emails_the_recipient(): void
@@ -35,36 +36,24 @@ class ContactFormTest extends TestCase
         Mail::assertSent(ContactFormSubmitted::class, function (ContactFormSubmitted $mail) {
             return $mail->hasTo(self::RECIPIENT)
                 && $mail->hasReplyTo('parent@example.test')
-                && $mail->submission['first_name'] === 'Asha';
+                && $mail->submission['message'] === 'Looking for a maths tutor.';
         });
     }
 
     public function test_missing_required_fields_are_rejected(): void
     {
         $this->post(route('contact.store'), [])
-            ->assertSessionHasErrors([
-                'first_name',
-                'last_name',
-                'email',
-                'pin_code',
-                'phone',
-                'child_date_of_birth',
-                'start_month',
-                'visit_date',
-                'privacy_consent',
-            ]);
+            ->assertSessionHasErrors(['first_name', 'last_name', 'email', 'phone', 'message']);
 
         Mail::assertNothingSent();
     }
 
-    public function test_invalid_phone_pin_and_dates_are_rejected(): void
+    public function test_invalid_email_and_phone_are_rejected(): void
     {
         $this->post(route('contact.store'), $this->validSubmission([
+            'email' => 'not-an-email',
             'phone' => '12345',
-            'pin_code' => '0123',
-            'child_date_of_birth' => now()->addDay()->toDateString(),
-            'visit_date' => now()->subDay()->toDateString(),
-        ]))->assertSessionHasErrors(['phone', 'pin_code', 'child_date_of_birth', 'visit_date']);
+        ]))->assertSessionHasErrors(['email', 'phone']);
 
         Mail::assertNothingSent();
     }
@@ -87,13 +76,8 @@ class ContactFormTest extends TestCase
             'first_name' => 'Asha',
             'last_name' => 'Verma',
             'email' => 'parent@example.test',
-            'pin_code' => '302001',
             'phone' => '9876543210',
-            'child_date_of_birth' => now()->subYears(8)->toDateString(),
-            'start_month' => now()->format('Y-m'),
-            'visit_date' => now()->addWeek()->toDateString(),
             'message' => 'Looking for a maths tutor.',
-            'privacy_consent' => '1',
         ], $overrides);
     }
 }
