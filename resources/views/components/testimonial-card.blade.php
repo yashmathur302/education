@@ -5,6 +5,7 @@
 @props([
     'testimonial',
     'quoteId',
+    'keyboardFocusable' => true,
 ])
 
 @php
@@ -29,6 +30,7 @@
         class="mt-2 inline-flex items-center gap-1.5 text-base font-medium text-lagoon hover:text-brand"
         aria-expanded="false"
         aria-controls="{{ $quoteId }}"
+        @unless ($keyboardFocusable) tabindex="-1" @endunless
         data-read-more
     >
         <svg class="size-4 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" data-read-more-icon>

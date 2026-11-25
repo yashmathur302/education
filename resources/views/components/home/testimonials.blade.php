@@ -35,18 +35,23 @@
                 Parent Speak
             </p>
 
-            {{-- The list is repeated once so the downward scroll can loop without a gap; the copy is hidden from screen readers and keyboards. --}}
+            {{--
+                The list is repeated once so the downward scroll can loop without a gap.
+                The copy stays clickable (it is often the one on screen) but is hidden
+                from screen readers and skipped by the Tab key.
+            --}}
             <div class="testimonial-viewport -mt-2 h-[480px] overflow-hidden sm:h-[520px]">
                 <div class="vertical-marquee flex flex-col" style="--marquee-duration: {{ $scrollDuration }}">
                     @foreach (['original', 'copy'] as $group)
                         <div
                             class="flex flex-col gap-6 pb-6"
-                            @if ($group === 'copy') aria-hidden="true" inert @endif
+                            @if ($group === 'copy') aria-hidden="true" @endif
                         >
                             @foreach ($testimonials as $testimonial)
                                 <x-testimonial-card
                                     :testimonial="$testimonial"
                                     :quote-id="'testimonial-' . $group . '-' . $loop->iteration"
+                                    :keyboard-focusable="$group === 'original'"
                                 />
                             @endforeach
                         </div>

@@ -18,11 +18,14 @@ class HomeTestimonialsTest extends TestCase
             ->assertSee('aria-controls="testimonial-original-1"', false);
     }
 
-    public function test_slider_copy_used_for_looping_is_hidden_from_assistive_technology(): void
+    public function test_slider_copy_is_clickable_but_hidden_from_screen_readers_and_tab_key(): void
     {
-        $this->get(route('home'))
-            ->assertSee('aria-hidden="true" inert', false)
-            ->assertSee('id="testimonial-copy-1"', false);
+        $html = $this->get(route('home'))->getContent();
+
+        $this->assertStringNotContainsString(' inert', $html);
+        $this->assertStringContainsString('id="testimonial-copy-1"', $html);
+        $this->assertMatchesRegularExpression('/aria-controls="testimonial-copy-1"\s+tabindex="-1"/', $html);
+        $this->assertDoesNotMatchRegularExpression('/aria-controls="testimonial-original-1"\s+tabindex="-1"/', $html);
     }
 
     public function test_initials_are_shown_when_there_is_no_photo(): void
