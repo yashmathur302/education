@@ -5,4 +5,5 @@
     <x-home.services />
     <x-home.latest-posts />
     <x-home.faqs />
+    <x-home.testimonials />
 </x-layouts.app>

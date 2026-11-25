@@ -2,10 +2,12 @@
 
 <section aria-labelledby="faqs-heading">
     <div class="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-16 lg:px-16 lg:py-20">
-        <h2 id="faqs-heading" class="sr-only">Frequently Asked Questions</h2>
+        <h2 id="faqs-heading" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
+            FAQ
+        </h2>
 
         {{-- Native <details> elements sharing one name open one at a time; the accordion script backs this up in older browsers. --}}
-        <div data-accordion>
+        <div class="mt-10 lg:mt-12" data-accordion>
             @foreach ($faqs as $faq)
                 <details name="home-faq" class="group">
                     <summary class="flex cursor-pointer list-none items-start gap-4 py-3 [&::-webkit-details-marker]:hidden">
@@ -26,10 +28,6 @@
                     </p>
                 </details>
             @endforeach
-        </div>
-
-        <div class="mt-12 text-center lg:mt-14">
-            <x-button :href="route('contact')" variant="outline">View all</x-button>
         </div>
     </div>
 </section>

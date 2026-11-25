@@ -18,6 +18,12 @@ class HomeFaqsTest extends TestCase
             ->assertDontSee('<details name="home-faq" class="group" open', false);
     }
 
+    public function test_faq_section_has_a_visible_heading(): void
+    {
+        $this->get(route('home'))
+            ->assertSeeInOrder(['id="faqs-heading"', 'FAQ', config('faqs.items')[0]['question']], false);
+    }
+
     public function test_homepage_includes_faq_structured_data_for_search_engines(): void
     {
         $firstFaq = config('faqs.items')[0];

@@ -56,6 +56,45 @@
     }
 
     /*
+     * Testimonials slider: the card list is repeated twice and moved down by
+     * half its height, so it loops without a gap. It pauses while hovered or
+     * while a card is expanded, and stays still for reduced-motion users.
+     */
+    .testimonial-viewport {
+        mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    .vertical-marquee {
+        animation: marquee-down var(--marquee-duration, 40s) linear infinite;
+    }
+
+    .testimonial-viewport:hover .vertical-marquee,
+    .testimonial-viewport:focus-within .vertical-marquee,
+    .testimonial-viewport.is-paused .vertical-marquee {
+        animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .testimonial-viewport {
+            overflow-y: auto;
+        }
+
+        .vertical-marquee {
+            animation: none;
+        }
+    }
+
+    @keyframes marquee-down {
+        from {
+            transform: translateY(-50%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    /*
      * Scalloped strip that hangs below the header. Each tile draws one
      * semicircle; the tile size controls the width and depth of the waves.
      */
