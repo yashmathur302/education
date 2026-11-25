@@ -1,11 +1,7 @@
 @php($faqs = config('faqs.items'))
 
-<section class="relative mt-12 overflow-hidden bg-sand" aria-labelledby="faqs-heading">
-    <div class="scalloped-edge pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
-
-    <x-illustrations.mountain-sun class="pointer-events-none absolute bottom-0 left-0 hidden w-[440px] text-ink/10 lg:block" />
-
-    <div class="relative mx-auto max-w-[1440px] px-4 pt-16 pb-24 sm:px-6 lg:px-16 lg:pt-20 lg:pb-28">
+<section aria-labelledby="faqs-heading">
+    <div class="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-16 lg:px-16 lg:py-20">
         <h2 id="faqs-heading" class="sr-only">Frequently Asked Questions</h2>
 
         {{-- Native <details> elements sharing one name open one at a time; the accordion script backs this up in older browsers. --}}
@@ -36,8 +32,6 @@
             <x-button :href="route('contact')" variant="outline">View all</x-button>
         </div>
     </div>
-
-    <div class="scalloped-edge pointer-events-none absolute inset-x-0 bottom-0 -scale-y-100" aria-hidden="true"></div>
 </section>
 
 @push('page-end')
