@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Mail\ContactFormSubmitted;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
@@ -54,6 +55,16 @@ class ContactFormTest extends TestCase
                 && $mail->hasReplyTo('parent@example.test')
                 && $mail->submission['message'] === 'Looking for a maths tutor.';
         });
+    }
+
+    public function test_email_shows_the_submission_time_in_indian_time(): void
+    {
+        // 10:57 in UTC is 4:27 pm in India (UTC+5:30).
+        $this->travelTo(Carbon::parse('2026-11-25 10:57:00', 'UTC'));
+
+        $html = (new ContactFormSubmitted($this->validSubmission()))->render();
+
+        $this->assertStringContainsString('25 November 2026, 4:27 pm', $html);
     }
 
     public function test_missing_required_fields_are_rejected(): void
