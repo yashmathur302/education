@@ -21,6 +21,11 @@ return [
         'dial' => '+919898989898',
     ],
 
+    // Where Contact Us enquiries are emailed. Set CONTACT_FORM_RECIPIENT in the server's .env file.
+    'contact_form' => [
+        'recipient' => env('CONTACT_FORM_RECIPIENT', env('MAIL_FROM_ADDRESS')),
+    ],
+
     // Placeholder contact details: replace with the real ones before launch.
     'email' => 'info@example.com',
 

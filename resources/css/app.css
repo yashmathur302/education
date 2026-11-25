@@ -24,6 +24,15 @@
 }
 
 @layer components {
+    /* Shared look for text inputs, selects and textareas in every form. */
+    .form-control {
+        @apply block w-full rounded border border-slate-300 bg-white px-4 text-sm text-ink transition-colors placeholder:text-slate-400 focus:border-teal focus:ring-2 focus:ring-teal/20 focus:outline-none;
+    }
+
+    .form-control[aria-invalid='true'] {
+        @apply border-red-500 focus:border-red-500 focus:ring-red-500/20;
+    }
+
     /*
      * Scalloped strip that hangs below the header. Each tile draws one
      * semicircle; the tile size controls the width and depth of the waves.
