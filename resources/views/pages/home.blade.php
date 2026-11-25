@@ -4,4 +4,5 @@
     <x-home.why-choose-us />
     <x-home.services />
     <x-home.latest-posts />
+    <x-home.faqs />
 </x-layouts.app>

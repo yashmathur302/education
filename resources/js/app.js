@@ -1,3 +1,4 @@
+import { initAccordions } from './modules/accordion';
 import { initAjaxForms } from './modules/ajax-form';
 import { initAutoDismiss } from './modules/auto-dismiss';
 import { initBackToTop } from './modules/back-to-top';
@@ -7,3 +8,4 @@ initMobileMenu();
 initBackToTop();
 initAutoDismiss();
 initAjaxForms();
+initAccordions();
