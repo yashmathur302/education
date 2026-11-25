@@ -65,7 +65,9 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'Asia/Kolkata'),
+    // Fixed to Indian Standard Time: the business and its visitors are in India,
+    // so a leftover APP_TIMEZONE=UTC line in a server's .env cannot change it.
+    'timezone' => 'Asia/Kolkata',
 
     /*
     |--------------------------------------------------------------------------
