@@ -3,7 +3,7 @@
     <x-home.about />
     <x-home.why-choose-us />
     <x-home.services />
-    <x-home.latest-posts />
-    <x-home.faqs />
     <x-home.testimonials />
+    <x-home.faqs />
+    <x-home.latest-posts />
 </x-layouts.app>

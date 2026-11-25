@@ -28,6 +28,17 @@ class HomeTestimonialsTest extends TestCase
         $this->assertDoesNotMatchRegularExpression('/aria-controls="testimonial-original-1"\s+tabindex="-1"/', $html);
     }
 
+    public function test_homepage_sections_are_in_the_agreed_order(): void
+    {
+        $this->get(route('home'))->assertSeeInOrder([
+            'id="services-heading"',
+            'id="testimonials-heading"',
+            'Testimonials',
+            'id="faqs-heading"',
+            'id="blogs-heading"',
+        ], false);
+    }
+
     public function test_initials_are_shown_when_there_is_no_photo(): void
     {
         config(['testimonials.items' => [[
