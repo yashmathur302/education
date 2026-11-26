@@ -42,4 +42,15 @@ return [
         ],
     ],
 
+    /*
+    | Homepage counters. Placeholder figures: replace them with your real
+    | numbers. "suffix" is optional (e.g. '+').
+    */
+    'counters' => [
+        ['value' => 14, 'suffix' => '', 'label' => 'Expert Tutors'],
+        ['value' => 11, 'suffix' => '', 'label' => 'Subjects'],
+        ['value' => 5, 'suffix' => '', 'label' => 'Star Rating'],
+        ['value' => 80, 'suffix' => '+', 'label' => 'Students'],
+    ],
+
 ];
