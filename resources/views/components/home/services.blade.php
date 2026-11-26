@@ -1,24 +1,4 @@
-@php
-    // Replace the placeholder SVGs in public/images/home with the final photos (WebP, 960x540).
-    $services = [
-        [
-            'title' => 'Online Tutor',
-            'description' => 'Learn from experienced tutors in live video classes, from anywhere, at a time that suits your family.',
-            'meta' => 'Live one-to-one classes · Flexible timings',
-            'image' => 'images/home/service-online.svg',
-            'imageAlt' => 'Student attending a live online class',
-            'theme' => 'blush',
-        ],
-        [
-            'title' => 'Offline Tutor',
-            'description' => "A verified tutor visits your home for focused one-to-one sessions that follow your child's syllabus.",
-            'meta' => 'Home tuition · Class 1 to 12',
-            'image' => 'images/home/service-offline.svg',
-            'imageAlt' => 'Tutor teaching a student at home',
-            'theme' => 'mist',
-        ],
-    ];
-@endphp
+@php($services = config('tutoring.services'))
 
 <section class="py-14 sm:py-16 lg:py-20" aria-labelledby="services-heading">
     <div class="mx-auto max-w-[1440px] px-4 sm:px-6">
@@ -30,10 +10,10 @@
             @foreach ($services as $service)
                 <x-service-card
                     :title="$service['title']"
-                    :description="$service['description']"
+                    :description="$service['summary']"
                     :meta="$service['meta']"
                     :image="asset($service['image'])"
-                    :image-alt="$service['imageAlt']"
+                    :image-alt="$service['image_alt']"
                     :href="route('find-tutor')"
                     :theme="$service['theme']"
                 />
