@@ -2,6 +2,7 @@
     'title' => null,
     'description' => null,
     'image' => null,
+    'type' => 'website',
 ])
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <x-seo-meta :title="$title" :description="$description" :image="$image" />
+    <x-seo-meta :title="$title" :description="$description" :image="$image" :type="$type" />
 
     @stack('preloads')
     @vite(['resources/css/app.css', 'resources/js/app.js'])

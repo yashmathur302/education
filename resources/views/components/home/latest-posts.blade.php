@@ -11,7 +11,7 @@
 
         <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8">
             @foreach ($posts as $post)
-                <x-blog-card :post="$post" :href="route('blog')" />
+                <x-blog-card :post="$post" />
             @endforeach
         </div>
 

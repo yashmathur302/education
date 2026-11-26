@@ -18,7 +18,8 @@
             <nav aria-label="Primary">
                 <ul class="flex flex-col lg:flex-row lg:items-center lg:gap-6 xl:gap-8">
                     @foreach ($navigation as $item)
-                        @php($isActive = request()->routeIs($item['route']))
+                        {{-- Child pages count too, e.g. a blog post (blog.show) highlights Blog. --}}
+                        @php($isActive = request()->routeIs($item['route'], $item['route'] . '.*'))
 
                         <li>
                             <a

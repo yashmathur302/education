@@ -28,6 +28,7 @@ class SeoMeta extends Component
         ?string $title = null,
         ?string $description = null,
         ?string $image = null,
+        public string $type = 'website',
     ) {
         $pageSeo = config('site.seo.' . Route::currentRouteName(), []);
 

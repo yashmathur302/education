@@ -11,7 +11,7 @@
             @else
                 <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 lg:gap-y-14">
                     @foreach ($posts as $post)
-                        <x-blog-card :post="$post" :href="route('blog')" background="white" />
+                        <x-blog-card :post="$post" background="white" />
                     @endforeach
                 </div>
 

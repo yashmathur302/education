@@ -9,6 +9,9 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('/about-us', 'pages.about')->name('about');
 Route::view('/services', 'pages.services')->name('services');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])
+    ->where('slug', '[a-z0-9-]+')
+    ->name('blog.show');
 Route::view('/privacy-policy', 'pages.privacy-policy')->name('privacy-policy');
 
 Route::view('/find-tutor', 'pages.find-tutor')->name('find-tutor');

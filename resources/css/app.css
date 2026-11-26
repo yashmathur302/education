@@ -56,6 +56,63 @@
     }
 
     /*
+     * Blog article body (HTML generated from the post's Markdown file):
+     * drop cap on the first paragraph, sand quote boxes and a floating
+     * Recent Posts box.
+     */
+    .article-content {
+        @apply text-base leading-relaxed text-ink/85 sm:text-lg;
+
+        & > p + p,
+        & > ul + p,
+        & > blockquote + p,
+        & > aside + p {
+            @apply mt-5;
+        }
+
+        & > p:first-child::first-letter {
+            @apply float-left mt-1 mr-3 font-display text-7xl leading-[0.8] font-extrabold text-ink;
+        }
+
+        & > h2 {
+            @apply mt-12 mb-4 text-2xl font-bold text-ink sm:text-3xl;
+        }
+
+        & > ul {
+            @apply mt-5 list-disc space-y-2 pl-6 marker:text-brand;
+        }
+
+        & a {
+            @apply font-medium text-brand underline-offset-2 hover:underline;
+        }
+
+        & > blockquote {
+            @apply relative my-10 rounded-2xl bg-sand px-8 pt-14 pb-8 text-lg text-ink italic sm:px-12;
+
+            &::before {
+                @apply absolute top-4 left-8 font-display text-6xl leading-none text-ink not-italic sm:left-12;
+                content: '\201C';
+            }
+        }
+    }
+
+    .recent-posts-box {
+        @apply my-8 rounded-2xl border border-slate-200 p-6 sm:float-left sm:mr-8 sm:mb-6 sm:w-[46%];
+
+        & h2 {
+            @apply text-base font-bold text-ink;
+        }
+
+        & ul {
+            @apply mt-3 list-disc space-y-2 pl-5 text-sm marker:text-brand;
+        }
+
+        & a {
+            @apply font-normal text-ink hover:text-brand hover:no-underline;
+        }
+    }
+
+    /*
      * Testimonials slider: the card list is repeated twice and moved down by
      * half its height, so it loops without a gap. It pauses while hovered or
      * while a card is expanded, and stays still for reduced-motion users.

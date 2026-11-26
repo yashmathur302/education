@@ -5,7 +5,6 @@
 --}}
 @props([
     'post',
-    'href',
     'background' => 'sand',
 ])
 
@@ -17,7 +16,7 @@
 @endphp
 
 <article {{ $attributes->class('group') }}>
-    <a href="{{ $href }}" class="block">
+    <a href="{{ route('blog.show', $post['slug']) }}" class="block">
         <div class="relative overflow-hidden rounded-t-2xl">
             <img
                 src="{{ asset($post['image']) }}"
