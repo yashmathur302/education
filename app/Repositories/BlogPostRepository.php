@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 
 /**
@@ -29,6 +31,25 @@ class BlogPostRepository
     public function latest(int $limit): Collection
     {
         return $this->all()->take($limit);
+    }
+
+    /**
+     * One page of posts, newest first, with links that keep the current URL.
+     *
+     * @return LengthAwarePaginator<int, array<string, string>>
+     */
+    public function paginate(int $perPage): LengthAwarePaginator
+    {
+        $posts = $this->all();
+        $currentPage = Paginator::resolveCurrentPage();
+
+        return new LengthAwarePaginator(
+            $posts->forPage($currentPage, $perPage)->values(),
+            $posts->count(),
+            $perPage,
+            $currentPage,
+            ['path' => Paginator::resolveCurrentPath()],
+        );
     }
 
     /**

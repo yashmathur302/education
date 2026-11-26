@@ -1,12 +1,20 @@
 {{--
     Blog post teaser: image with a category tag and a wavy bottom edge,
     followed by the post title. The wave is filled with the colour behind
-    the card (sand by default) so the photo appears to end in a wave.
+    the card, so pass the section background: "sand" (default) or "white".
 --}}
 @props([
     'post',
     'href',
+    'background' => 'sand',
 ])
+
+@php
+    $waveColors = [
+        'sand' => 'text-sand',
+        'white' => 'text-white',
+    ];
+@endphp
 
 <article {{ $attributes->class('group') }}>
     <a href="{{ $href }}" class="block">
@@ -26,7 +34,7 @@
             </span>
 
             <svg
-                class="absolute inset-x-0 -bottom-px h-4 w-full text-sand sm:h-5"
+                class="absolute inset-x-0 -bottom-px h-4 w-full sm:h-5 {{ $waveColors[$background] }}"
                 viewBox="0 0 300 20"
                 preserveAspectRatio="none"
                 fill="currentColor"

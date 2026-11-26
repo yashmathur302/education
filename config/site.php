@@ -96,7 +96,7 @@ return [
             'description' => 'Explore our tutoring services for school, board and competitive exams.',
         ],
         'blog' => [
-            'title' => 'Blog',
+            'title' => 'Blogs',
             'description' => 'Study tips, exam guidance and learning resources for students and parents.',
         ],
         'contact' => [
