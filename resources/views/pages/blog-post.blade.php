@@ -11,7 +11,7 @@
     type="article"
 >
     <article>
-        <header class="mx-auto max-w-4xl px-4 pt-12 sm:px-6 lg:pt-16">
+        <header class="mx-auto max-w-[1048px] px-4 pt-12 sm:px-6 lg:pt-16">
             <div class="flex items-center justify-between gap-4">
                 <p class="text-sm font-semibold text-brand">{{ $post['category'] }}</p>
                 <x-share-links :url="$postUrl" :title="$post['title']" />
@@ -43,11 +43,11 @@
             >
         </div>
 
-        <div class="article-content mx-auto mt-12 max-w-3xl px-4 sm:px-6">
+        <div class="article-content mx-auto mt-12 max-w-[1048px] px-4 sm:px-6">
             {!! $bodyHtml !!}
         </div>
 
-        <footer class="mx-auto mt-12 max-w-3xl px-4 pb-16 sm:px-6 lg:pb-20">
+        <footer class="mx-auto mt-12 max-w-[1048px] px-4 pb-16 sm:px-6 lg:pb-20">
             @if (! empty($post['tags']))
                 <p class="text-sm">
                     <span class="font-semibold text-ink">Tags:</span>
@@ -60,15 +60,11 @@
     </article>
 
     @if ($suggestedPosts->isNotEmpty())
-        <section class="relative overflow-hidden bg-sand" aria-labelledby="more-blogs-heading">
+        <section class="relative overflow-hidden bg-sand" aria-label="More blog posts">
             <div class="scalloped-edge pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
 
             <div class="relative mx-auto max-w-[1280px] px-4 pt-20 pb-24 sm:px-6 lg:pt-24 lg:pb-28">
-                <h2 id="more-blogs-heading" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
-                    More Blogs
-                </h2>
-
-                <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8">
+                <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     @foreach ($suggestedPosts as $suggestedPost)
                         <x-blog-card :post="$suggestedPost" />
                     @endforeach

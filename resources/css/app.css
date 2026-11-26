@@ -97,14 +97,14 @@
     }
 
     .recent-posts-box {
-        @apply my-8 rounded-2xl border border-slate-200 p-6 sm:float-left sm:mr-8 sm:mb-6 sm:w-[46%];
+        @apply my-8 border border-slate-300 px-7 py-8 sm:float-left sm:mt-2 sm:mr-8 sm:mb-6 sm:w-[48%];
 
         & h2 {
-            @apply text-base font-bold text-ink;
+            @apply inline-block border-b-[3px] border-lagoon pb-2 text-xl font-bold text-ink;
         }
 
         & ul {
-            @apply mt-3 list-disc space-y-2 pl-5 text-sm marker:text-brand;
+            @apply mt-5 list-disc space-y-1 pl-6 text-base leading-relaxed sm:text-lg marker:text-ink;
         }
 
         & a {

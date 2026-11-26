@@ -74,7 +74,8 @@ class BlogPostPageTest extends TestCase
 
         $this->get(route('blog.show', $first['slug']))
             ->assertSee('Recent Posts')
-            ->assertSee('More Blogs')
+            ->assertSee('aria-label="More blog posts"', false)
+            ->assertDontSee('More Blogs</h2>', false)
             ->assertSee($second['title'])
             ->assertSee($third['title'])
             ->assertDontSee('[recent-posts]');
