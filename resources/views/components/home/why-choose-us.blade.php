@@ -28,7 +28,7 @@
     ];
 @endphp
 
-<section class="relative overflow-hidden bg-sky" aria-labelledby="why-choose-us-heading">
+<section {{ $attributes->class('relative overflow-hidden bg-sky') }} aria-labelledby="why-choose-us-heading">
     <div class="scalloped-edge pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
 
     <div class="mx-auto max-w-[1440px] px-4 pt-20 pb-20 sm:px-6 lg:pt-28 lg:pb-24">

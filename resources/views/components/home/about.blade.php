@@ -1,3 +1,6 @@
+{{-- Shown on the homepage (with a Learn more link to About Us) and on the About Us page itself (without it). --}}
+@props(['showLearnMore' => true])
+
 @php
     $highlights = [
         'Verified, Experienced Tutors',
@@ -37,7 +40,9 @@
                 @endforeach
             </ul>
 
-            <x-button :href="route('about')" variant="outline" class="mt-9">Learn more</x-button>
+            @if ($showLearnMore)
+                <x-button :href="route('about')" variant="outline" class="mt-9">Learn more</x-button>
+            @endif
         </div>
     </div>
 </section>
