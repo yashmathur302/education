@@ -23,6 +23,6 @@
         <div class="scalloped-edge pointer-events-none absolute inset-x-0 bottom-0 -scale-y-100" aria-hidden="true"></div>
     </section>
 
-    {{-- A short white gap keeps the two sections' waves from running into each other. --}}
-    <x-home.why-choose-us class="mt-12" />
+    {{-- White version so the page alternates: sand Mission/Vision, then white. --}}
+    <x-home.why-choose-us background="white" />
 </x-layouts.app>

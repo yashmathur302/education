@@ -33,6 +33,17 @@ class AboutPageTest extends TestCase
             ->assertSeeInOrder(['id="about-heading"', 'href="' . route('about') . '"', 'Learn more'], false);
     }
 
+    public function test_why_choose_us_is_white_on_about_page_and_blue_on_homepage(): void
+    {
+        $sectionTag = '/<section[^>]*class="([^"]*)"[^>]*aria-labelledby="why-choose-us-heading"/';
+
+        preg_match($sectionTag, $this->get(route('about'))->getContent(), $about);
+        preg_match($sectionTag, $this->get(route('home'))->getContent(), $home);
+
+        $this->assertStringContainsString('bg-white', $about[1]);
+        $this->assertStringContainsString('bg-sky', $home[1]);
+    }
+
     public function test_mission_has_its_photo_on_the_right_and_vision_on_the_left(): void
     {
         $html = $this->get(route('about'))->getContent();

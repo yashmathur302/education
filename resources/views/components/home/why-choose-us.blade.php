@@ -1,4 +1,18 @@
+{{--
+    Used on the homepage (light blue with waves, the default) and on the
+    About Us page with background="white" (no waves, darker numbers so
+    they stay visible on white).
+--}}
+@props(['background' => 'sky'])
+
 @php
+    $themes = [
+        'sky' => ['section' => 'bg-sky', 'numbers' => 'text-white/60', 'waves' => true],
+        'white' => ['section' => 'bg-white', 'numbers' => 'text-sky', 'waves' => false],
+    ];
+
+    $theme = $themes[$background];
+
     /*
      * On large screens the points are scattered like the design: each entry
      * sets where its centre sits inside the points area. Every number uses
@@ -28,8 +42,10 @@
     ];
 @endphp
 
-<section {{ $attributes->class('relative overflow-hidden bg-sky') }} aria-labelledby="why-choose-us-heading">
-    <div class="scalloped-edge pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
+<section {{ $attributes->class(['relative overflow-hidden', $theme['section']]) }} aria-labelledby="why-choose-us-heading">
+    @if ($theme['waves'])
+        <div class="scalloped-edge pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
+    @endif
 
     <div class="mx-auto max-w-[1440px] px-4 pt-20 pb-20 sm:px-6 lg:pt-28 lg:pb-24">
         <h2
@@ -47,7 +63,7 @@
         <ol class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 lg:relative lg:mt-8 lg:block lg:h-[450px]">
             @foreach ($points as $point)
                 <li class="relative text-center text-[6rem] sm:text-[8rem] lg:absolute lg:-translate-x-1/2 lg:text-[11rem] {{ $point['position'] }}">
-                    <span class="block leading-[0.8] font-bold tracking-tight text-white/60 select-none" aria-hidden="true">
+                    <span class="block leading-[0.8] font-bold tracking-tight select-none {{ $theme['numbers'] }}" aria-hidden="true">
                         {{ sprintf('%02d', $loop->iteration) }}
                     </span>
 
@@ -64,5 +80,7 @@
         </ol>
     </div>
 
-    <div class="scalloped-edge pointer-events-none absolute inset-x-0 bottom-0 -scale-y-100" aria-hidden="true"></div>
+    @if ($theme['waves'])
+        <div class="scalloped-edge pointer-events-none absolute inset-x-0 bottom-0 -scale-y-100" aria-hidden="true"></div>
+    @endif
 </section>
