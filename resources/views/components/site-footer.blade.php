@@ -31,13 +31,27 @@
                 </ul>
             @endforeach
 
-            <address class="col-span-2 space-y-1 text-base font-medium text-ink not-italic lg:order-4 lg:col-span-1">
-                @foreach ($address['lines'] as $line)
-                    <p>{{ $line }}</p>
-                @endforeach
-                <p><a href="{{ $address['map_url'] }}" target="_blank" rel="noopener" class="hover:text-brand">Google map</a></p>
-                <p class="pt-1">Phone: <a href="tel:{{ $phone['dial'] }}" class="hover:text-brand">{{ $phone['display'] }}</a></p>
-                <p><a href="mailto:{{ $email }}" class="hover:text-brand">{{ $email }}</a></p>
+            <address class="col-span-2 space-y-3 text-base font-medium text-ink not-italic lg:order-4 lg:col-span-1">
+                <p class="flex items-start gap-3">
+                    <x-icons.map-pin class="mt-0.5 size-5 shrink-0 text-brand" />
+                    <span>
+                        @foreach ($address['lines'] as $line)
+                            <span class="block">{{ $line }}</span>
+                        @endforeach
+                    </span>
+                </p>
+                <p>
+                    <a href="tel:{{ $phone['dial'] }}" class="flex items-center gap-3 hover:text-brand">
+                        <x-icons.phone class="size-5 shrink-0 text-brand" />
+                        {{ $phone['display'] }}
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:{{ $email }}" class="flex items-center gap-3 hover:text-brand">
+                        <x-icons.mail class="size-5 shrink-0 text-brand" />
+                        {{ $email }}
+                    </a>
+                </p>
             </address>
 
             <div class="col-span-2 flex flex-col items-start gap-8 lg:order-5 lg:col-span-1 lg:items-end lg:gap-12">
