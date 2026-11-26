@@ -24,7 +24,7 @@ class ContactFormTest extends TestCase
         $this->get(route('contact'))
             ->assertOk()
             ->assertSee('Send Us a Message')
-            ->assertSee('maps.google.com/maps', false);
+            ->assertSee('https://www.google.com/maps/embed?pb=', false);
     }
 
     public function test_map_uses_the_configured_google_embed_link(): void

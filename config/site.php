@@ -17,8 +17,8 @@ return [
     'default_og_image' => 'images/og/default.jpg',
 
     'phone' => [
-        'display' => '+91-9898989898',
-        'dial' => '+919898989898',
+        'display' => '+91-9582883500',
+        'dial' => '+919582883500',
     ],
 
     // Where Contact Us enquiries are emailed. Set CONTACT_FORM_RECIPIENT in the server's .env file.
@@ -38,10 +38,10 @@ return [
     'address' => [
         'lines' => ['Your Street Address', 'City, State'],
         'map_url' => 'https://maps.google.com/',
-        // Contact Us map. Set GOOGLE_MAP_EMBED_URL in .env to the "src" link from Google Maps
-        // (Share > Embed a map). Until then the map searches for GOOGLE_MAP_QUERY.
-        'map_embed_url' => env('GOOGLE_MAP_EMBED_URL'),
-        'map_query' => env('GOOGLE_MAP_QUERY') ?: 'Jaipur, Rajasthan, India',
+        // Contact Us map: the "src" link from Google Maps (Share > Embed a map).
+        // GOOGLE_MAP_EMBED_URL in .env overrides it without changing the code.
+        'map_embed_url' => env('GOOGLE_MAP_EMBED_URL') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.93268158449!2d77.1104179742961!3d28.691660281395645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03f03a72d279%3A0xfe4428d79a5368b!2sGhalib%20Apartment%20Pitam%20Pura%20Gate%20no%201!5e0!3m2!1sen!2sin!4v1795690851493!5m2!1sen!2sin',
+        'map_query' => env('GOOGLE_MAP_QUERY') ?: 'Ghalib Apartment, Pitam Pura, Delhi',
     ],
 
     // Placeholder profile links: replace '#' with the real profile URLs.
