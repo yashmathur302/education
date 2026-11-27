@@ -2,11 +2,7 @@
     <x-page-hero
         title="About Us"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
-    >
-        <x-slot:illustration>
-            <x-illustrations.fox class="h-full w-auto py-6 pr-6 lg:pr-16" />
-        </x-slot:illustration>
-    </x-page-hero>
+    />
 
     <x-home.about :show-learn-more="false" />
 

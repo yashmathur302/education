@@ -8,6 +8,7 @@
         <div class="mx-auto max-w-[1000px] px-4 sm:px-6">
             <form
                 id="find-tutor-form"
+                data-animate="fade-up"
                 data-ajax-form
                 method="POST"
                 action="{{ route('find-tutor.store') }}"

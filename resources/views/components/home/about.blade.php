@@ -16,9 +16,10 @@
             :src="asset('images/home/about.svg')"
             alt="Student learning with a tutor"
             class="mx-auto w-full max-w-[640px]"
+            data-animate="slide-from-left"
         />
 
-        <div class="max-w-[34rem]">
+        <div data-animate="slide-from-right" data-animate-delay="150" class="max-w-[34rem]">
             <h2 id="about-heading" class="text-4xl font-semibold text-ink sm:text-5xl">
                 Our Story
             </h2>
@@ -33,7 +34,7 @@
 
             <ul class="mt-7 space-y-4">
                 @foreach ($highlights as $highlight)
-                    <li class="flex items-center gap-3 text-base font-semibold text-ink sm:text-lg">
+                    <li data-animate="fade-up" data-animate-delay="{{ 500 + $loop->index * 150 }}" class="flex items-center gap-3 text-base font-semibold text-ink sm:text-lg">
                         <span class="size-5 shrink-0 rounded-full border-[5px] border-brand bg-white" aria-hidden="true"></span>
                         {{ $highlight }}
                     </li>

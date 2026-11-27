@@ -5,13 +5,13 @@
     <x-illustrations.lollipop-tree class="pointer-events-none absolute right-[6%] bottom-0 hidden w-[90px] lg:block" />
 
     <div class="relative mx-auto max-w-[1280px] px-4 pt-20 pb-24 sm:px-6 lg:pt-24 lg:pb-28">
-        <h2 id="blogs-heading" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
+        <h2 id="blogs-heading" data-animate="fade-in" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
             Blogs
         </h2>
 
         <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-8">
             @foreach ($posts as $post)
-                <x-blog-card :post="$post" />
+                <x-blog-card :post="$post" data-animate="fade-up" :data-animate-delay="$loop->index * 150" />
             @endforeach
         </div>
 

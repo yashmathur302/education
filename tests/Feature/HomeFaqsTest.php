@@ -14,8 +14,12 @@ class HomeFaqsTest extends TestCase
             $response->assertSee($faq['question']);
         }
 
-        $response->assertSee('<details name="home-faq" class="group">', false)
-            ->assertDontSee('<details name="home-faq" class="group" open', false);
+        $html = $response->getContent();
+
+        $this->assertSame(count(config('faqs.items')), preg_match_all('/<details name="home-faq"[^>]*>/', $html, $tags));
+        foreach ($tags[0] as $tag) {
+            $this->assertStringNotContainsString(' open', $tag);
+        }
     }
 
     public function test_faq_section_has_a_visible_heading(): void

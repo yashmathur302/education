@@ -14,6 +14,8 @@
 <figure {{ $attributes->class('relative pt-[21.95%] pb-[8%]') }}>
     <svg
         class="absolute top-0 left-1/2 w-[42%] -translate-x-1/2 text-ink"
+        data-animate="jello"
+        data-animate-delay="900"
         viewBox="0 -8 264 138"
         fill="currentColor"
         aria-hidden="true"

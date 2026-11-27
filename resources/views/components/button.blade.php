@@ -17,7 +17,7 @@
     ];
 
     $classes = 'inline-flex items-center justify-center rounded border font-display font-extrabold tracking-wide '
-        . 'transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand '
+        . 'transition duration-200 motion-safe:hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand '
         . $sizeClasses[$size] . ' ' . $variantClasses[$variant];
 @endphp
 

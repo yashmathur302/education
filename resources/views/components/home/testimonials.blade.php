@@ -9,12 +9,12 @@
     <div class="scalloped-edge pointer-events-none absolute inset-x-0 top-0" aria-hidden="true"></div>
 
     <div class="mx-auto max-w-[1440px] px-4 pt-20 pb-24 sm:px-6 lg:px-16 lg:pt-24 lg:pb-28">
-        <h2 id="testimonials-heading" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
+        <h2 id="testimonials-heading" data-animate="fade-in" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
             Testimonials
         </h2>
 
         <div class="mt-10 grid items-center gap-10 lg:mt-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
-            <div>
+            <div data-animate="slide-from-left" data-animate-delay="150">
                 <div class="flex items-start gap-3">
                     <svg class="mt-1 size-10 shrink-0 text-lagoon sm:size-12" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="24" cy="12" r="5" />
@@ -35,7 +35,7 @@
                 </p>
             </div>
 
-            <div data-testimonial-slider>
+            <div data-testimonial-slider data-animate="slide-from-right" data-animate-delay="300">
                 <p class="relative z-10 rounded-xl bg-lagoon py-2.5 text-center text-lg font-semibold text-white">
                     Parent Speak
                 </p>

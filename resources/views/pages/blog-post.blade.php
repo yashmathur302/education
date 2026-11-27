@@ -11,7 +11,7 @@
     type="article"
 >
     <article>
-        <header class="mx-auto max-w-[1048px] px-4 pt-12 sm:px-6 lg:pt-16">
+        <header data-animate="fade-in" class="mx-auto max-w-[1048px] px-4 pt-12 sm:px-6 lg:pt-16">
             <div class="flex items-center justify-between gap-4">
                 <p class="text-sm font-semibold text-brand">{{ $post['category'] }}</p>
                 <x-share-links :url="$postUrl" :title="$post['title']" />
@@ -31,7 +31,7 @@
             <div class="mt-6 h-2 rounded-full bg-brand" aria-hidden="true"></div>
         </header>
 
-        <div class="mx-auto mt-10 max-w-[1200px] px-4 sm:px-6">
+        <div data-animate="fade-up" data-animate-delay="200" class="mx-auto mt-10 max-w-[1200px] px-4 sm:px-6">
             <img
                 src="{{ asset($post['image']) }}"
                 alt=""
@@ -66,7 +66,7 @@
             <div class="relative mx-auto max-w-[1280px] px-4 pt-20 pb-24 sm:px-6 lg:pt-24 lg:pb-28">
                 <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     @foreach ($suggestedPosts as $suggestedPost)
-                        <x-blog-card :post="$suggestedPost" />
+                        <x-blog-card :post="$suggestedPost" data-animate="fade-up" :data-animate-delay="$loop->index * 150" />
                     @endforeach
                 </div>
             </div>

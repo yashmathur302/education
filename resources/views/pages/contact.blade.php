@@ -9,10 +9,11 @@
             <x-google-map
                 :embed-url="config('site.address.map_embed_url')"
                 :query="config('site.address.map_query')"
+                data-animate="slide-from-left"
                 class="order-last h-[320px] sm:h-[400px] lg:order-first lg:h-auto lg:min-h-[520px]"
             />
 
-            <div>
+            <div data-animate="fade-up" data-animate-delay="150">
                 <h2 id="contact-form-heading" class="font-display text-3xl font-extrabold text-ink sm:text-4xl">
                     Send Us a Message
                 </h2>

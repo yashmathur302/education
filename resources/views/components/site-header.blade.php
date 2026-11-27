@@ -40,7 +40,7 @@
 
             <div class="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center lg:mt-0 lg:justify-self-end lg:gap-5">
                 <x-phone-link class="lg:hidden xl:inline-flex" />
-                <x-button :href="route($cta['route'])">{{ $cta['label'] }}</x-button>
+                <x-button :href="route($cta['route'])" data-animate="pulse" data-animate-delay="800">{{ $cta['label'] }}</x-button>
             </div>
         </div>
 

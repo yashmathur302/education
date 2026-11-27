@@ -33,7 +33,7 @@
             <a
                 href="{{ $network['href'] }}"
                 @unless (str_starts_with($network['href'], 'mailto:')) target="_blank" rel="noopener" @endunless
-                class="flex size-9 items-center justify-center rounded-full bg-lagoon text-white transition-colors hover:bg-brand"
+                class="flex size-9 items-center justify-center rounded-full bg-lagoon text-white transition-colors hover:bg-brand motion-safe:hover:animate-[pop_0.3s_ease-out]"
                 aria-label="{{ $network['label'] }}"
             >
                 <x-dynamic-component :component="'icons.' . $network['icon']" class="size-4" />

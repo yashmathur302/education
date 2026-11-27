@@ -13,15 +13,15 @@
 
     <div class="mx-auto flex min-h-[460px] max-w-[1440px] items-center px-4 pt-16 pb-14 sm:min-h-[500px] sm:px-6 lg:min-h-[534px] lg:px-6 lg:pt-20">
         <div class="max-w-xl">
-            <h1 class="font-display text-[2.25rem] leading-[1.15] font-extrabold text-ink sm:text-5xl xl:text-[3.5rem]">
+            <h1 data-animate="zoom-in-down" class="font-display text-[2.25rem] leading-[1.15] font-extrabold text-ink sm:text-5xl xl:text-[3.5rem]">
                 Find the Right Tutor for Your Child
             </h1>
 
-            <p class="mt-5 max-w-lg text-base leading-relaxed text-ink/80 sm:text-lg">
+            <p data-animate="fade-up" data-animate-delay="400" class="mt-5 max-w-lg text-base leading-relaxed text-ink/80 sm:text-lg">
                 Qualified, verified tutors for every class, board and subject, matched to your child's learning needs.
             </p>
 
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+            <div data-animate="zoom-in" data-animate-delay="700" class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                 <x-button :href="route('find-tutor')" size="lg">Find Tutor</x-button>
                 <x-phone-link />
             </div>

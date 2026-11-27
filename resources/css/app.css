@@ -197,3 +197,221 @@
         }
     }
 }
+
+/*
+ * Entrance animations (see resources/js/modules/reveal.js).
+ *
+ * Elements marked data-animate="name" start hidden only when JavaScript is
+ * running (the "js" class on <html>) and the visitor has not asked for
+ * reduced motion. reveal.js adds "is-visible" once each element scrolls into
+ * view, which plays the matching keyframes once. "pulse" and "jello" start
+ * visible because they only move something that is already on screen.
+ */
+@media (prefers-reduced-motion: no-preference) {
+    .js [data-animate]:not([data-animate='pulse'], [data-animate='jello'], .is-visible) {
+        opacity: 0;
+    }
+
+    [data-animate].is-visible {
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+        animation-fill-mode: both;
+    }
+
+    [data-animate='fade-in'].is-visible {
+        animation-name: fade-in;
+    }
+
+    [data-animate='fade-up'].is-visible {
+        animation-name: fade-up;
+    }
+
+    [data-animate='zoom-in'].is-visible {
+        animation-name: zoom-in;
+    }
+
+    [data-animate='zoom-in-down'].is-visible {
+        animation-name: zoom-in-down;
+        animation-duration: 0.9s;
+    }
+
+    [data-animate='slide-from-left'].is-visible {
+        animation-name: slide-from-left;
+        animation-duration: 0.8s;
+    }
+
+    [data-animate='slide-from-right'].is-visible {
+        animation-name: slide-from-right;
+        animation-duration: 0.8s;
+    }
+
+    [data-animate='bounce-in-down'].is-visible {
+        animation-name: bounce-in-down;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+    [data-animate='rotate-in-left'].is-visible,
+    [data-animate='rotate-in-right'].is-visible {
+        transform-origin: 50% 100%;
+        animation-duration: 0.9s;
+    }
+
+    [data-animate='rotate-in-left'].is-visible {
+        animation-name: rotate-in-left;
+    }
+
+    [data-animate='rotate-in-right'].is-visible {
+        animation-name: rotate-in-right;
+    }
+
+    [data-animate='jello'].is-visible {
+        transform-origin: 50% 100%;
+        animation-name: jello;
+        animation-duration: 0.9s;
+        animation-timing-function: ease;
+    }
+
+    [data-animate='pulse'].is-visible {
+        animation-name: pulse;
+        animation-duration: 0.9s;
+        animation-timing-function: ease-in-out;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}
+
+@keyframes zoom-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.6);
+    }
+}
+
+@keyframes slide-from-left {
+    from {
+        opacity: 0;
+        transform: translateX(-48px);
+    }
+}
+
+@keyframes slide-from-right {
+    from {
+        opacity: 0;
+        transform: translateX(48px);
+    }
+}
+
+@keyframes bounce-in-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-120px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+
+    75% {
+        transform: translateY(-5px);
+    }
+
+    90% {
+        transform: translateY(2px);
+    }
+
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes rotate-in-left {
+    from {
+        opacity: 0;
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes rotate-in-right {
+    from {
+        opacity: 0;
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes jello {
+    0%,
+    100% {
+        transform: none;
+    }
+
+    30% {
+        transform: scale(1.18, 0.82);
+    }
+
+    40% {
+        transform: scale(0.82, 1.18);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    65% {
+        transform: scale(0.96, 1.04);
+    }
+
+    75% {
+        transform: scale(1.03, 0.97);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* Hover effects, used through Tailwind's motion-safe:hover:animate-[...] utilities. */
+@keyframes wobble-x {
+    15% {
+        transform: translateX(-8px) rotate(-2deg);
+    }
+
+    30% {
+        transform: translateX(6px) rotate(1.5deg);
+    }
+
+    45% {
+        transform: translateX(-4px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translateX(2px);
+    }
+}
+
+@keyframes pop {
+    50% {
+        transform: scale(1.25);
+    }
+}

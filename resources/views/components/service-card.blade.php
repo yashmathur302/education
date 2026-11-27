@@ -21,7 +21,7 @@
     $colors = $themes[$theme];
 @endphp
 
-<article {{ $attributes->class('relative isolate flex flex-col items-center px-6 pt-9 pb-12 text-center sm:px-10 sm:pt-10') }}>
+<article {{ $attributes->class('group relative isolate flex flex-col items-center px-6 pt-9 pb-12 text-center sm:px-10 sm:pt-10') }}>
     {{-- Card outline: stretches with the card, so the edges keep their gentle bulges at any width. --}}
     <svg
         class="absolute inset-0 -z-10 size-full {{ $colors['card'] }}"
@@ -42,7 +42,7 @@
         height="540"
         loading="lazy"
         decoding="async"
-        class="mt-5 aspect-video w-full max-w-[320px] rounded-[30px_22px_30px_24px/24px_30px_22px_30px] object-cover"
+        class="mt-5 aspect-video w-full max-w-[320px] rounded-[30px_22px_30px_24px/24px_30px_22px_30px] object-cover motion-safe:group-hover:animate-[wobble-x_0.8s_ease-in-out]"
     >
 
     <p class="mt-5 max-w-md text-sm leading-relaxed text-ink sm:text-base">{{ $description }}</p>

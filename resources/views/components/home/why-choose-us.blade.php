@@ -50,19 +50,20 @@
     <div class="mx-auto max-w-[1440px] px-4 pt-20 pb-20 sm:px-6 lg:pt-28 lg:pb-24">
         <h2
             id="why-choose-us-heading"
+            data-animate="fade-in"
             class="font-display text-5xl leading-none font-extrabold text-ink sm:text-6xl lg:ml-[17%] lg:text-[6.5rem]"
         >
             Why Choose Us
         </h2>
 
-        <p class="mt-6 max-w-lg text-sm leading-relaxed text-ink/80 sm:text-base lg:ml-[33%] lg:max-w-[30rem]">
+        <p data-animate="fade-in" data-animate-delay="200" class="mt-6 max-w-lg text-sm leading-relaxed text-ink/80 sm:text-base lg:ml-[33%] lg:max-w-[30rem]">
             From the first call to the final exam, we stay with your family. Tutors are carefully selected,
             lessons follow your child's own syllabus, and you always know how your child is progressing.
         </p>
 
         <ol class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 lg:relative lg:mt-8 lg:block lg:h-[450px]">
             @foreach ($points as $point)
-                <li class="relative text-center text-[6rem] sm:text-[8rem] lg:absolute lg:-translate-x-1/2 lg:text-[11rem] {{ $point['position'] }}">
+                <li data-animate="zoom-in" data-animate-delay="{{ $loop->index * 200 }}" class="relative text-center text-[6rem] sm:text-[8rem] lg:absolute lg:-translate-x-1/2 lg:text-[11rem] {{ $point['position'] }}">
                     <span class="block leading-[0.8] font-bold tracking-tight select-none {{ $theme['numbers'] }}" aria-hidden="true">
                         {{ sprintf('%02d', $loop->iteration) }}
                     </span>
