@@ -415,3 +415,194 @@
         transform: scale(1.25);
     }
 }
+
+/* ==========================================================================
+ * Extra effects. Each block below is independent and can be removed on its
+ * own (together with its JavaScript module, where one is named).
+ * ========================================================================== */
+
+/* Effect: page-to-page transitions (no JavaScript). Pages cross-fade with a
+ * small rise instead of flashing white; browsers without support ignore it. */
+@view-transition {
+    navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    ::view-transition-old(root) {
+        animation: 0.25s ease-in both page-leave;
+    }
+
+    ::view-transition-new(root) {
+        animation: 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both page-enter;
+    }
+}
+
+@keyframes page-leave {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+}
+
+/* Effect: hand-drawn underline (<x-squiggle>). The orange line draws itself
+ * once its heading (or the block around it) has been revealed. */
+.squiggle-word {
+    position: relative;
+    display: inline-block;
+}
+
+.squiggle-line {
+    position: absolute;
+    left: -2%;
+    bottom: -0.18em;
+    width: 104%;
+    height: 0.28em;
+    overflow: visible;
+    fill: none;
+    stroke: var(--color-brand);
+    stroke-width: 5;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .js .squiggle-line path {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+    }
+
+    .js .is-visible .squiggle-line path,
+    .js .is-visible.squiggle-word .squiggle-line path {
+        animation: squiggle-draw 0.9s ease-out 0.45s forwards;
+    }
+}
+
+@keyframes squiggle-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Effect: floating doodles in the homepage banner (home/hero-doodles). Slow,
+ * gentle loops; they stay still for visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+    .doodle--slow {
+        animation: doodle-bob 6s ease-in-out infinite;
+    }
+
+    .doodle--drift {
+        animation: doodle-drift 8s ease-in-out infinite;
+    }
+
+    .doodle--tilt {
+        animation: doodle-tilt 7s ease-in-out infinite;
+    }
+
+    .doodle--offset {
+        animation-delay: -2s;
+    }
+}
+
+@keyframes doodle-bob {
+    50% {
+        transform: translateY(-10px) rotate(6deg);
+    }
+}
+
+@keyframes doodle-drift {
+    50% {
+        transform: translate(-12px, -8px) rotate(-4deg);
+    }
+}
+
+@keyframes doodle-tilt {
+    50% {
+        transform: translateY(8px) rotate(-8deg);
+    }
+}
+
+/* Entrance animations are dropped once finished (reveal.js adds is-settled),
+ * so hover effects can freely move the element afterwards. */
+[data-animate].is-visible.is-settled {
+    animation: none;
+}
+
+/* Effect: card lift and tilt (data-tilt, see resources/js/modules/card-tilt.js).
+ * Mouse and trackpad only; touch screens and reduced-motion users keep cards still. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    [data-tilt] {
+        transition:
+            transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+            filter 0.35s ease;
+    }
+
+    [data-tilt]:hover {
+        transform: perspective(900px) translateY(-6px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+        filter: drop-shadow(0 18px 24px rgb(18 52 60 / 0.14));
+    }
+}
+
+/* Effect: mobile menu links slide in one after another when the menu opens
+ * (phones and tablets only; the desktop menu is always visible). */
+@media (width < 64rem) and (prefers-reduced-motion: no-preference) {
+    [data-menu]:not(.hidden) nav li,
+    [data-menu]:not(.hidden) > div {
+        animation: menu-item-in 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    [data-menu]:not(.hidden) nav li:nth-child(2) {
+        animation-delay: 50ms;
+    }
+
+    [data-menu]:not(.hidden) nav li:nth-child(3) {
+        animation-delay: 100ms;
+    }
+
+    [data-menu]:not(.hidden) nav li:nth-child(4) {
+        animation-delay: 150ms;
+    }
+
+    [data-menu]:not(.hidden) nav li:nth-child(5) {
+        animation-delay: 200ms;
+    }
+
+    [data-menu]:not(.hidden) > div {
+        animation-delay: 260ms;
+    }
+}
+
+@keyframes menu-item-in {
+    from {
+        opacity: 0;
+        transform: translateX(24px);
+    }
+}
+
+/* Effect: drifting waves. Every scalloped edge slides very slowly sideways.
+ * The strip is one wave wider than the screen and moved with "transform",
+ * so the browser does not repaint it; the extra width is clipped. */
+@media (prefers-reduced-motion: no-preference) {
+    .scalloped-edge {
+        width: calc(100% + var(--scallop-width));
+        animation: wave-drift 14s linear infinite;
+    }
+}
+
+@keyframes wave-drift {
+    to {
+        transform: translateX(calc(-1 * var(--scallop-width)));
+    }
+}
+
+/* Effect: arrow nudge. The arrow on service card buttons nudges right on hover. */
+@keyframes arrow-nudge {
+    50% {
+        transform: translateX(4px);
+    }
+}

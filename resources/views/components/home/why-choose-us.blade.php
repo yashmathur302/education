@@ -53,7 +53,7 @@
             data-animate="fade-in"
             class="font-display text-5xl leading-none font-extrabold text-ink sm:text-6xl lg:ml-[17%] lg:text-[6.5rem]"
         >
-            Why Choose Us
+            Why Choose <x-squiggle>Us</x-squiggle>
         </h2>
 
         <p data-animate="fade-in" data-animate-delay="200" class="mt-6 max-w-lg text-sm leading-relaxed text-ink/80 sm:text-base lg:ml-[33%] lg:max-w-[30rem]">

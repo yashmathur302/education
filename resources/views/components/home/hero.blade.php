@@ -9,6 +9,8 @@
         decoding="async"
         class="absolute inset-0 -z-20 size-full object-cover object-[70%_center]"
     >
+    <x-home.hero-doodles />
+
     <div class="absolute inset-0 -z-10 bg-linear-to-r from-white/90 via-white/70 to-white/10 lg:via-white/40 lg:to-transparent"></div>
 
     <div class="mx-auto flex min-h-[460px] max-w-[1440px] items-center px-4 pt-16 pb-14 sm:min-h-[500px] sm:px-6 lg:min-h-[534px] lg:px-6 lg:pt-20">

@@ -3,7 +3,7 @@
 <section aria-labelledby="faqs-heading">
     <div class="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 sm:py-16 lg:px-16 lg:py-20">
         <h2 id="faqs-heading" data-animate="fade-in" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
-            FAQ
+            <x-squiggle>FAQ</x-squiggle>
         </h2>
 
         {{-- Native <details> elements sharing one name open one at a time; the accordion script backs this up in older browsers. --}}

@@ -2,8 +2,11 @@ import { initAccordions } from './modules/accordion';
 import { initAjaxForms } from './modules/ajax-form';
 import { initAutoDismiss } from './modules/auto-dismiss';
 import { initBackToTop } from './modules/back-to-top';
+import { initCardTilt } from './modules/card-tilt';
 import { initCounters } from './modules/counter';
 import { initMobileMenu } from './modules/mobile-menu';
+import { initParallax } from './modules/parallax';
+import { initReadingProgress } from './modules/reading-progress';
 import { initReveal } from './modules/reveal';
 import { initTestimonialSliders } from './modules/testimonial-slider';
 
@@ -15,3 +18,8 @@ initAjaxForms();
 initAccordions();
 initTestimonialSliders();
 initCounters();
+
+// Extra effects: each can be removed by deleting its line here and its module.
+initParallax();
+initCardTilt();
+initReadingProgress();

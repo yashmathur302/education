@@ -3,7 +3,7 @@
     $cta = config('site.cta');
 @endphp
 
-<header class="relative z-30 bg-white">
+<header class="relative z-30 overflow-x-clip bg-white">
     {{-- On large screens a three-column grid keeps the menu centred between the logo and the actions. --}}
     <div class="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:grid lg:h-[78px] lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:px-6">
         <a href="{{ route('home') }}" class="font-display text-3xl font-extrabold text-ink lg:justify-self-start lg:text-[2.5rem]">

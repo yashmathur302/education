@@ -10,7 +10,7 @@
 
     <div class="mx-auto max-w-[1440px] px-4 pt-20 pb-24 sm:px-6 lg:px-16 lg:pt-24 lg:pb-28">
         <h2 id="testimonials-heading" data-animate="fade-in" class="text-center font-display text-5xl font-extrabold text-ink sm:text-6xl lg:text-[4rem]">
-            Testimonials
+            <x-squiggle>Testimonials</x-squiggle>
         </h2>
 
         <div class="mt-10 grid items-center gap-10 lg:mt-12 lg:grid-cols-[2fr_3fr] lg:gap-16">

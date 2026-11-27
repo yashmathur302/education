@@ -27,9 +27,14 @@
                 <time datetime="{{ $publishedAt->toDateString() }}">{{ $publishedAt->format('j F Y') }}</time>
                 <span>{{ $readingMinutes }} min read</span>
             </div>
-
-            <div class="mt-6 h-2 rounded-full bg-brand" aria-hidden="true"></div>
         </header>
+
+        {{-- Effect: reading progress bar (resources/js/modules/reading-progress.js). Full when JavaScript is off. --}}
+        <div class="sticky top-0 z-30 mx-auto mt-6 max-w-[1048px] px-4 pt-2 sm:px-6" aria-hidden="true">
+            <div class="h-2 overflow-hidden rounded-full bg-brand/20">
+                <div class="h-full origin-left rounded-full bg-brand" data-reading-progress></div>
+            </div>
+        </div>
 
         <div data-animate="fade-up" data-animate-delay="200" class="mx-auto mt-10 max-w-[1200px] px-4 sm:px-6">
             <img

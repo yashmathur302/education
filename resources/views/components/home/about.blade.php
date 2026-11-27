@@ -17,11 +17,12 @@
             alt="Student learning with a tutor"
             class="mx-auto w-full max-w-[640px]"
             data-animate="slide-from-left"
+            data-parallax="0.08"
         />
 
         <div data-animate="slide-from-right" data-animate-delay="150" class="max-w-[34rem]">
             <h2 id="about-heading" class="text-4xl font-semibold text-ink sm:text-5xl">
-                Our Story
+                Our <x-squiggle>Story</x-squiggle>
             </h2>
 
             <p class="mt-5 text-base leading-[1.75] text-ink/80 sm:text-lg sm:leading-[1.7]">

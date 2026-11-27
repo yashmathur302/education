@@ -15,7 +15,7 @@
     ];
 @endphp
 
-<article {{ $attributes->class('group') }}>
+<article data-tilt {{ $attributes->class('group') }}>
     <a href="{{ route('blog.show', $post['slug']) }}" class="block">
         <div class="relative overflow-hidden rounded-t-2xl">
             <img

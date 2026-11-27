@@ -30,6 +30,17 @@ export function initReveal() {
 
         element.style.animationDelay = `${Number(element.dataset.animateDelay) || 0}ms`;
         element.classList.add('is-visible');
+
+        // Once finished, drop the entrance animation (it already ended at rest)
+        // so hover effects such as the card tilt can move the element freely.
+        // Animations of child elements bubble up here too, so wait for our own.
+        const settle = (event) => {
+            if (event.target === element) {
+                element.classList.add('is-settled');
+                element.removeEventListener('animationend', settle);
+            }
+        };
+        element.addEventListener('animationend', settle);
         observer.unobserve(element);
 
         if (waiting.size === 0) {
