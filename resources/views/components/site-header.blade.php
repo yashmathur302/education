@@ -6,8 +6,8 @@
 <header class="relative z-30 overflow-x-clip bg-white">
     {{-- On large screens a three-column grid keeps the menu centred between the logo and the actions. --}}
     <div class="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:grid lg:h-[78px] lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:px-6">
-        <a href="{{ route('home') }}" class="font-display text-3xl font-extrabold text-ink lg:justify-self-start lg:text-[2.5rem]">
-            {{ config('site.name') }}
+        <a href="{{ route('home') }}" class="shrink-0 lg:justify-self-start" aria-label="{{ config('site.name') }} home">
+            <x-logo class="h-14 lg:h-[72px]" fetchpriority="high" />
         </a>
 
         <div

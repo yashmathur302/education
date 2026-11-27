@@ -1,6 +1,5 @@
 <svg {{ $attributes }} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M3 11 11 4l8 7" />
-    <path d="M5 9.5V19h5" />
-    <rect x="12" y="13" width="9" height="6" rx="1" />
-    <path d="M11 21h11" />
+    <circle cx="12" cy="9" r="6" />
+    <path d="m9.5 9 1.8 1.8L14.8 7.3" />
+    <path d="M8.5 14 7 22l5-3 5 3-1.5-8" />
 </svg>

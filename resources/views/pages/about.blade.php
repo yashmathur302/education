@@ -4,7 +4,7 @@
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
     />
 
-    <x-home.about :show-learn-more="false" />
+    <x-home.about variant="page" />
 
     {{-- Sand section with the site's waves, like the design's "Our graduates" / "Our community" blocks. --}}
     <section class="relative overflow-hidden bg-sand" aria-label="Our mission and vision">

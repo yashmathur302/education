@@ -10,7 +10,7 @@ class ExtraEffectsTest extends TestCase
     {
         $html = $this->get(route('home'))->getContent();
 
-        $this->assertSame(6, substr_count($html, 'class="squiggle-word"'));
+        $this->assertSame(7, substr_count($html, 'class="squiggle-word"'));
     }
 
     public function test_homepage_banner_has_floating_doodles_with_parallax(): void

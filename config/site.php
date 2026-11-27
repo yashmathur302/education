@@ -12,7 +12,8 @@
 
 return [
 
-    'name' => env('APP_NAME', 'Education'),
+    // The brand name, used in page titles, the logo's alt text and text across the site.
+    'name' => 'GyanDoorStep',
 
     'default_og_image' => 'images/og/default.jpg',
 

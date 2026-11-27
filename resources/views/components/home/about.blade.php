@@ -1,12 +1,15 @@
-{{-- Shown on the homepage (with a Learn more link to About Us) and on the About Us page itself (without it). --}}
-@props(['showLearnMore' => true])
+{{--
+    About section with the TV-frame photo. Text comes from config/about.php:
+    "home" on the homepage (short text, underlined last word, Learn more link)
+    and "page" on the About Us page (the longer story, no link).
+--}}
+@props(['variant' => 'home'])
 
 @php
-    $highlights = [
-        'Verified, Experienced Tutors',
-        'CBSE, ICSE and State Board Syllabus',
-        'Home and Online Classes',
-    ];
+    $isHome = $variant === 'home';
+    $content = config('about.' . $variant);
+    $headingStart = \Illuminate\Support\Str::beforeLast($content['heading'], ' ');
+    $headingLastWord = \Illuminate\Support\Str::afterLast($content['heading'], ' ');
 @endphp
 
 <section class="py-16 sm:py-20 lg:py-24" aria-labelledby="about-heading">
@@ -20,29 +23,28 @@
             data-parallax="0.08"
         />
 
-        <div data-animate="slide-from-right" data-animate-delay="150" class="max-w-[34rem]">
-            <h2 id="about-heading" class="text-4xl font-semibold text-ink sm:text-5xl">
-                Our <x-squiggle>Story</x-squiggle>
+        <div data-animate="slide-from-right" data-animate-delay="150" class="max-w-[36rem]">
+            @if ($content['eyebrow'])
+                <p class="mb-3 text-sm font-semibold tracking-wide text-brand uppercase">{{ $content['eyebrow'] }}</p>
+            @endif
+
+            <h2 id="about-heading" @class([
+                'font-semibold text-ink',
+                'text-4xl sm:text-5xl' => $isHome,
+                'text-3xl leading-tight sm:text-4xl' => ! $isHome,
+            ])>
+                @if ($isHome)
+                    {{ $headingStart }} <x-squiggle>{{ $headingLastWord }}</x-squiggle>
+                @else
+                    {{ $content['heading'] }}
+                @endif
             </h2>
 
-            <p class="mt-5 text-base leading-[1.75] text-ink/80 sm:text-lg sm:leading-[1.7]">
-                We started with a simple belief: every child learns differently, and the right tutor can change
-                how a student feels about a subject. Today we connect families with experienced home and online
-                tutors for school subjects, board exams and competitive tests. Every tutor is interviewed and
-                verified, then matched to your child's class, syllabus and pace, so learning feels personal and
-                progress is easy to see.
-            </p>
+            @foreach ($content['paragraphs'] as $paragraph)
+                <p class="mt-5 text-base leading-[1.75] text-ink/80 sm:text-lg sm:leading-[1.7]">{{ $paragraph }}</p>
+            @endforeach
 
-            <ul class="mt-7 space-y-4">
-                @foreach ($highlights as $highlight)
-                    <li data-animate="fade-up" data-animate-delay="{{ 500 + $loop->index * 150 }}" class="flex items-center gap-3 text-base font-semibold text-ink sm:text-lg">
-                        <span class="size-5 shrink-0 rounded-full border-[5px] border-brand bg-white" aria-hidden="true"></span>
-                        {{ $highlight }}
-                    </li>
-                @endforeach
-            </ul>
-
-            @if ($showLearnMore)
+            @if ($isHome)
                 <x-button :href="route('about')" variant="outline" class="mt-9">Learn more</x-button>
             @endif
         </div>

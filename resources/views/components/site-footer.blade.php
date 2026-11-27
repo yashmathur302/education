@@ -18,9 +18,10 @@
         <div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-8 px-4 pt-4 pb-10 sm:px-6 lg:grid-cols-5 lg:items-center lg:gap-y-0 lg:pr-28 lg:pl-12 lg:py-0">
             <a
                 href="{{ route('home') }}"
-                class="col-span-2 font-display text-4xl font-extrabold text-ink lg:order-3 lg:col-span-1 lg:justify-self-center lg:text-[2.5rem]"
+                class="col-span-2 justify-self-start lg:order-3 lg:col-span-1 lg:justify-self-center"
+                aria-label="{{ config('site.name') }} home"
             >
-                {{ config('site.name') }}
+                <x-logo class="h-20 lg:h-24" loading="lazy" />
             </a>
 
             @foreach ($footer['link_columns'] as $column)

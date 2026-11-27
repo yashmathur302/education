@@ -3,7 +3,7 @@
     vertically. Used for services, mission and vision. Set "reversed" to put
     the photo on the right and the card on the left.
 
-    $item needs: slug, title, image, image_alt, paragraphs.
+    $item needs: slug, title, image, image_alt, and either paragraphs (a list) or description (one paragraph).
 --}}
 @props([
     'item',
@@ -34,7 +34,7 @@
     <div data-animate="{{ $cardEntrance }}" data-animate-delay="150" class="relative -mt-8 mx-3 rounded-lg bg-white px-6 py-10 shadow-[0_12px_40px_rgba(18,52,60,0.10)] sm:mx-8 sm:px-12 sm:py-12 lg:m-0 lg:px-[60px] lg:py-[60px]">
         <h2 class="text-4xl leading-tight font-bold text-ink sm:text-5xl">{{ $item['title'] }}</h2>
 
-        @foreach ($item['paragraphs'] as $paragraph)
+        @foreach ($item['paragraphs'] ?? [$item['description']] as $paragraph)
             <p class="mt-5 text-base leading-[1.65] text-ink/85 sm:text-lg">{{ $paragraph }}</p>
         @endforeach
     </div>

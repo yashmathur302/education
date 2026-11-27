@@ -5,7 +5,6 @@
 @props([
     'title',
     'description',
-    'meta',
     'image',
     'imageAlt' => '',
     'href',
@@ -47,7 +46,6 @@
 
     <p class="mt-5 max-w-md text-sm leading-relaxed text-ink sm:text-base">{{ $description }}</p>
 
-    <p class="mt-3 text-sm font-semibold {{ $colors['accent'] }}">{{ $meta }}</p>
 
     <a
         href="{{ $href }}"

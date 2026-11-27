@@ -15,7 +15,7 @@ class ServicesPageTest extends TestCase
         foreach (config('tutoring.services') as $service) {
             $response->assertSee('id="' . $service['slug'] . '"', false)
                 ->assertSee($service['title'])
-                ->assertSee($service['paragraphs'][0]);
+                ->assertSee($service['description']);
         }
     }
 
@@ -40,7 +40,7 @@ class ServicesPageTest extends TestCase
         $response = $this->get(route('home'));
 
         foreach (config('tutoring.services') as $service) {
-            $response->assertSee($service['title'])->assertSee($service['summary']);
+            $response->assertSee($service['title'])->assertSee($service['description']);
         }
     }
 }

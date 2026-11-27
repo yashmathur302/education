@@ -16,28 +16,32 @@
     /*
      * On large screens the points are scattered like the design: each entry
      * sets where its centre sits inside the points area. Every number uses
-     * the same size. On smaller screens they fall back to a two-column grid.
+     * the same size. On smaller screens they stack (two columns on tablets).
      */
     $points = [
         [
-            'label' => 'Verified Tutors',
+            'title' => 'Verified & Experienced Tutors',
+            'description' => 'Learn from carefully verified, qualified, and experienced tutors who provide personalized guidance for every student.',
             'icon' => 'shield-check',
-            'position' => 'lg:left-[12%] lg:top-0',
+            'position' => 'lg:left-[15%] lg:top-0',
         ],
         [
-            'label' => 'Personalised Plans',
-            'icon' => 'notebook-pen',
-            'position' => 'lg:left-[37%] lg:top-[58%]',
+            'title' => 'Flexible Learning Schedules',
+            'description' => "Enjoy the convenience of choosing tuition timings that fit your child's daily routine and learning needs.",
+            'icon' => 'clock',
+            'position' => 'lg:left-[38%] lg:top-[50%]',
         ],
         [
-            'label' => 'Home & Online Classes',
-            'icon' => 'home-laptop',
-            'position' => 'lg:left-[62%] lg:top-[10%]',
+            'title' => 'Guaranteed Results',
+            'description' => 'Not satisfied with the tutor? Get a replacement tutor at no additional cost and continue learning with confidence.',
+            'icon' => 'award',
+            'position' => 'lg:left-[62%] lg:top-[6%]',
         ],
         [
-            'label' => 'Progress Updates',
-            'icon' => 'chart-up',
-            'position' => 'lg:left-[87%] lg:top-[60%]',
+            'title' => 'Affordable Tuition Fees',
+            'description' => 'Access quality education and expert guidance at competitive prices that suit your budget.',
+            'icon' => 'rupee',
+            'position' => 'lg:left-[85%] lg:top-[52%]',
         ],
     ];
 @endphp
@@ -51,31 +55,25 @@
         <h2
             id="why-choose-us-heading"
             data-animate="fade-in"
-            class="font-display text-5xl leading-none font-extrabold text-ink sm:text-6xl lg:ml-[17%] lg:text-[6.5rem]"
+            class="text-center font-display text-4xl leading-tight font-extrabold text-ink sm:text-5xl lg:text-[4.25rem]"
         >
-            Why Choose <x-squiggle>Us</x-squiggle>
+            Why Choose <x-squiggle>GyanDoorStep?</x-squiggle>
         </h2>
 
-        <p data-animate="fade-in" data-animate-delay="200" class="mt-6 max-w-lg text-sm leading-relaxed text-ink/80 sm:text-base lg:ml-[33%] lg:max-w-[30rem]">
-            From the first call to the final exam, we stay with your family. Tutors are carefully selected,
-            lessons follow your child's own syllabus, and you always know how your child is progressing.
-        </p>
-
-        <ol class="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 lg:relative lg:mt-8 lg:block lg:h-[450px]">
+        <ol class="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:relative lg:mt-16 lg:block lg:h-[580px]">
             @foreach ($points as $point)
-                <li data-animate="zoom-in" data-animate-delay="{{ $loop->index * 200 }}" class="relative text-center text-[6rem] sm:text-[8rem] lg:absolute lg:-translate-x-1/2 lg:text-[11rem] {{ $point['position'] }}">
+                <li data-animate="zoom-in" data-animate-delay="{{ $loop->index * 200 }}" class="relative mx-auto w-full max-w-[19rem] text-center text-[6rem] sm:text-[7rem] lg:absolute lg:w-[19rem] lg:-translate-x-1/2 lg:text-[9rem] {{ $point['position'] }}">
                     <span class="block leading-[0.8] font-bold tracking-tight select-none {{ $theme['numbers'] }}" aria-hidden="true">
                         {{ sprintf('%02d', $loop->iteration) }}
                     </span>
 
                     <x-dynamic-component
                         :component="'icons.' . $point['icon']"
-                        class="absolute top-[0.5em] left-1/2 size-11 -translate-x-1/2 -translate-y-1/2 text-brand lg:size-16"
+                        class="absolute top-[0.5em] left-1/2 size-11 -translate-x-1/2 -translate-y-1/2 text-brand lg:size-14"
                     />
 
-                    <span class="relative -mt-2 block text-lg font-bold text-ink sm:text-2xl lg:text-[1.75rem] lg:whitespace-nowrap">
-                        {{ $point['label'] }}
-                    </span>
+                    <h3 class="relative -mt-2 text-xl leading-snug font-bold text-ink sm:text-2xl">{{ $point['title'] }}</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-ink/75 sm:text-base">{{ $point['description'] }}</p>
                 </li>
             @endforeach
         </ol>

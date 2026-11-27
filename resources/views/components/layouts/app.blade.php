@@ -13,6 +13,11 @@
 
     <x-seo-meta :title="$title" :description="$description" :image="$image" :type="$type" />
 
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48">
+    <link rel="icon" href="{{ asset('images/brand/favicon-32.png') }}" type="image/png" sizes="32x32">
+    <link rel="icon" href="{{ asset('images/brand/icon-192.png') }}" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="{{ asset('images/brand/apple-touch-icon.png') }}">
+
     @stack('preloads')
     {{--
         Lets entrance animations hide content before it first paints. If the
