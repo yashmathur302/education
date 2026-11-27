@@ -13,40 +13,49 @@
 |   3. Write the article in resources/content/blog/{slug}.md (Markdown).
 |      A line containing only [recent-posts] shows the Recent Posts box there.
 |
+| title       Heading on the card and the post page.
+| category    Small tag on the card and above the post title.
+| meta_title  Browser tab and Google title (optional; defaults to the title).
+| excerpt     Google and social media description.
+| tags        Shown at the end of the post.
+|
 */
 
 return [
 
     'posts' => [
         [
-            'slug' => 'study-habits-that-help-children-learn-at-home',
-            'title' => 'Simple study habits that help children learn better at home',
-            'category' => 'Tips',
+            'slug' => 'top-10-qualities-of-a-good-home-tutor',
+            'title' => 'Top 10 Qualities Every Good Home Tutor Should Have',
+            'meta_title' => 'Top 10 Qualities of a Good Home Tutor',
+            'category' => 'Tutor Tips',
             'image' => 'images/blog/study-habits.svg',
-            'excerpt' => 'Small daily routines make a big difference. Here are simple study habits that help children focus, remember more and enjoy learning at home.',
-            'author' => 'Editorial Team',
-            'tags' => ['Study tips', 'Parents', 'Home learning'],
-            'published_at' => '2026-11-15',
+            'excerpt' => 'Discover the top 10 qualities of a good home tutor, including subject knowledge, patience, communication skills and personalised teaching methods.',
+            'author' => 'GyanDoorStep Team',
+            'tags' => ['Qualities of a good home tutor', 'Home tuition', 'Parents'],
+            'published_at' => '2026-11-27',
         ],
         [
-            'slug' => 'prepare-for-board-exams-without-stress',
-            'title' => 'How to prepare your child for board exams without the stress',
-            'category' => 'Exams',
+            'slug' => 'home-tutor-vs-coaching-institute',
+            'title' => "Home Tutor vs Coaching Institute: Which Is Better for Your Child's Success?",
+            'meta_title' => 'Home Tutor vs Coaching Institute: Which Is Better?',
+            'category' => 'Parents Guide',
             'image' => 'images/blog/board-exams.svg',
-            'excerpt' => 'Board exams do not have to mean sleepless nights. A clear plan, regular revision and the right support help students stay calm and confident.',
-            'author' => 'Editorial Team',
-            'tags' => ['Board exams', 'CBSE', 'Revision'],
-            'published_at' => '2026-11-08',
+            'excerpt' => "Home tutor vs coaching institute: Compare teaching methods, personal attention, fees, flexibility and learning environments to choose what's best for your child.",
+            'author' => 'GyanDoorStep Team',
+            'tags' => ['Home tutor vs coaching institute', 'Coaching classes', 'Parents'],
+            'published_at' => '2026-11-26',
         ],
         [
-            'slug' => 'online-or-home-tuition',
-            'title' => 'Online or home tuition: choosing the right option for your child',
-            'category' => 'Parents',
+            'slug' => 'best-home-tutor-providers-in-delhi-ncr',
+            'title' => 'Best Home Tutor Providers in Delhi NCR – Why Gyandoorstep Is Your Smart Choice',
+            'meta_title' => 'Best Home Tutor Providers in Delhi NCR | Gyandoorstep',
+            'category' => 'Delhi NCR',
             'image' => 'images/blog/online-or-home.svg',
-            'excerpt' => 'Both online classes and home tuition work well, for different children. Compare the two to decide which suits your child and your family.',
-            'author' => 'Editorial Team',
-            'tags' => ['Online classes', 'Home tuition', 'Parents'],
-            'published_at' => '2026-11-01',
+            'excerpt' => 'Looking for the best home tutor providers in Delhi NCR? Discover how Gyandoorstep helps parents find suitable tutors for personalized learning.',
+            'author' => 'GyanDoorStep Team',
+            'tags' => ['Best home tutor providers in Delhi NCR', 'Home tuition', 'Gyandoorstep'],
+            'published_at' => '2026-11-25',
         ],
     ],
 

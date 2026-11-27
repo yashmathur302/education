@@ -50,6 +50,11 @@ class SeoMeta extends Component
             return $this->siteName;
         }
 
+        // Some titles already name the brand (e.g. "... | Gyandoorstep"); don't add it twice.
+        if (stripos($pageTitle, $this->siteName) !== false) {
+            return $pageTitle;
+        }
+
         return $pageTitle . ' | ' . $this->siteName;
     }
 }

@@ -5,7 +5,7 @@
 @endphp
 
 <x-layouts.app
-    :title="$post['title']"
+    :title="$post['meta_title'] ?? $post['title']"
     :description="$post['excerpt']"
     :image="$post['image']"
     type="article"

@@ -13,7 +13,7 @@ class BlogPostPageTest extends TestCase
                 ->assertOk()
                 ->assertSee('<h1', false)
                 ->assertSee($post['title'])
-                ->assertSee('<title>' . e($post['title']), false)
+                ->assertSee('<title>' . e($post['meta_title'] ?? $post['title']), false)
                 ->assertSee('<meta property="og:type" content="article">', false)
                 ->assertSee('class="article-content', false);
         }
